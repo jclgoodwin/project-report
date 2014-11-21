@@ -100,20 +100,18 @@ This [report/project/thing] will \ldots
 
 Input:
 
-[GSN arguments are directed, multivariate \todo{I think} graphs.]
-
-
+as I said earlier
 
 \subsection{Problem definition?}
 
 Artoo also allows the drawing of invalid GSN argments ...
 if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
-If the algorithm [is exposed to the user by a] button, then there is the poissibility.
+If the algorithm [is exposed to the user by a] button, then there is the poissibility of checking 
 
 \subsubsection{\ldots}
 
 Already, Artoo only works a limited set of web browsers: recent versions of \ldots
-The features added in this project will not [interface] with the browser in any new way -- only needing to change the position of nodes \ldots
+The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using functions already in the code -- it is very unlikely that there will be any problems \ldots
 
 
 
@@ -128,7 +126,8 @@ pinpoint his use of this method as the birth of graph theory.
 
 In 1963, \citet{tutte} popularised the problem of graph drawing when he presented 
 
-who showed that polyhedral graphs may be drawn in the plane with all faces convex by fixing the vertices of the outer face of a planar embedding of the graph into convex position, placing a spring-like attractive force on each edge, and letting the system settle into an equilibrium
+
+["who showed that polyhedral graphs may be drawn in the plane with all faces convex by fixing the vertices of the outer face of a planar embedding of the graph into convex position, placing a spring-like attractive force on each edge, and letting the system settle into an equilibrium"]
 
 Perhaps his most relevant finding was that 
 
@@ -146,9 +145,9 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 \section{What makes a good graph layout?}
 
-Speed is one 
+Speed is an obvious desirable property of any 
 
-The Gestalt theories of visual perception, developed from a wider Gestalt theory of the mind  \ldots German psychologists \ldots the Berlin School \ldots inform  \ldots 
+The Gestalt principles of visual perception, based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries, are sometimes [?] used to 
 
 The principle 
 
@@ -157,36 +156,47 @@ Some studies have tried \ldots cognitive effects [Purchase et al?]
 \subsection{Edge crossings}
 
 There can be many practical motivations for minimising edge crossings.
-When P\`{a}l Tur\`{a}n worked in a brick factory during World War II, he wondered about the minumum number of crossings in a graph representing brick kilns, storage sites and the paths between them \ldots
-When a graph represents an electrical circuit, 
+When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
+he wondered about the minumum number of crossings in a graph representing
+brick kilns, storage sites and the paths between them \ldots
+When a graph represents an electrical circuit, the  
 
 
 
-\section{techniques?}
-
-[gastner 199*]
+\section{approaches?}
 
 \subsection{force dire}
 
 \ldots a successor to \citet{tutte} spring embedding
 
- 
+[gastner 199*]
+
+\subsection{grid}
+
+
+
+\subsection{force dire}
 
 \section{[GSN-/Artoo-specific considerations?]}
 
 [move to Requirements?]
 
-The GSN specification citep[section~2.2, pp.~26--27]\{\} gives some guidance on the layout of arguments \ldots
+The GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard} gives some guidance on the layout of arguments \ldots
 
 \subsection{Dangling edges}
 
 
-\subsection{Cycles}
+\subsection{Directed cycles}
 
-It can be useful to remove directed cycles from the internal representation of a graph (before drawing the edges in the correct, original order) -- for example, in order to assign a rank to each node.
-This is achieved by reversing certain edges. \citet{gansner1993} Minimising the 
+It can be useful to remove directed cycles from the internal representation of a graph
+(before drawing the edges in the correct, original order)
+-- for example, in order to assign a consistent rank to each node.
+This is achieved by reversing certain edges.
+\citet{gansner1993} present  Minimising the 
 
-Undirected cycles can be elimiated by ignoring certain edges altogether to produce a tree.  [citation needed]
+\subsection{Undirected cycles}
+
+Undirected cycles can be elimiated by ignoring certain edges altogether, to produce a tree.  [citation needed]
 
 
 
@@ -197,24 +207,37 @@ Undirected cycles can be elimiated by ignoring certain edges altogether to produ
 
 
 
-\chapter{}
-
-
 \section{[Alternatives to JavaScript]}
 
 Various [things] have been developed in response to percieved shortcomings in JavaScript \ldots
 
 Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript \ldots this is interesting but \ldots
 
-Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}} and GHCJS are compilers from Haskell to JavaScript. 
+Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. \todo{performance overhead\ldots}
+
+Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}} and GHCJS\footnote{} are compilers from Haskell to JavaScript. These are perhaps most interesting [?], given that 
 
 
-ASM\footnote{[ASM]} is a strict subset of 
+ASM\footnote{} is a strict subset of 
 
 \section{Software development methodologies}
 
-In \citeyear{67poorslop}, \citet{67poorslop} explained ``Why Programming is a Good Medium for Expressing Poorly Understood and Sloppily Formulated Ideas''.
-(More recently, [sussman] gave a talk with the same title \todo{\url{http://vimeo.com/12060509}}
+In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a Good Medium for Expressing Poorly Understood and Sloppily Formulated Ideas''.
+(More recently, [sussman] gave a talk with the same title \ldots \todo{\url{http://vimeo.com/12060509}}.)
+
+
+\section{}
+
+Reuse of existing software libraries is widely [?] understood to be [a very sensible idea]. There are , which \ldots for comparison with 
+
+\begin{description}
+    \item[Springy] is
+    \item[Arbor] is an implementation of the Barnes-Hut algorithm for 
+    \item[The JavaScript InfoVis Toolkit]
+    \item[vis.js]
+\end{description}
+
+The Graphviz library contains several algorithms, including \ldots [as described in \ldots]. Although it is written in C, Emscripten \footnote{\url{emscripten.org}} compiles LLVM bitcode (readily compiled from C code) [as described earlier?] to the ASM subset of JavaScript -
 
 \bibliography{report}
 
