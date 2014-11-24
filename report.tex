@@ -1,10 +1,15 @@
 \documentclass[authoryearcitations]{UoYCSproject}
 \usepackage{todonotes}
 
+\SetExtraKerning
+   [unit = space]%
+   {encoding = *}%
+   {\ = {500,}}
+
 \author{Joshua Goodwin}
 \title{Layout of arguments in the Artoo tool}
 % \date{}
-\supervisor{Fiona Polack}
+\supervisor{}
 \BEng
 
 \wordcount{?}
@@ -63,7 +68,7 @@ edges represent relationships between these.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{example_argument.pdf}
-    \caption{An example argument, from the GSN specification}
+    \caption{An example argument, from the GSN specification [I don't think this layout is very good, because\ldots]    }
 \end{figure}
 
 \ldots
@@ -129,7 +134,7 @@ In 1963, \citet{tutte} popularised the problem of graph drawing when he presente
 
 ["who showed that polyhedral graphs may be drawn in the plane with all faces convex by fixing the vertices of the outer face of a planar embedding of the graph into convex position, placing a spring-like attractive force on each edge, and letting the system settle into an equilibrium"]
 
-Perhaps his most relevant finding was that 
+Perhaps his most relevant \ldots was the idea of modelling the graph as a system of springs and masses \ldots 
 
 In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} \todo{find out page number!} says this is [the first example of an algorithm for visualising information] although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
 
@@ -147,7 +152,9 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 Speed is an obvious desirable property of any 
 
-The Gestalt principles of visual perception, based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries, are sometimes [?] used to 
+GSN was intended to be clearer than textual arguments \ldots
+
+The Gestalt principles of visual perception, based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries, are sometimes [?] used to [inform/justify?] heuristics
 
 The principle 
 
@@ -161,7 +168,9 @@ he wondered about the minumum number of crossings in a graph representing
 brick kilns, storage sites and the paths between them \ldots
 When a graph represents an electrical circuit, the  
 
+[But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
 
+[who?] found that using the Gestalt principle of `closure' \ldots the viewer's mind instinctively joins up the lines
 
 \section{approaches?}
 
@@ -169,7 +178,7 @@ When a graph represents an electrical circuit, the
 
 \ldots a successor to \citet{tutte} spring embedding
 
-[gastner 199*]
+[gansner 199*]
 
 \subsection{grid}
 
@@ -183,27 +192,23 @@ When a graph represents an electrical circuit, the
 
 The GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard} gives some guidance on the layout of arguments \ldots
 
+
+
 \subsection{Dangling edges}
 
+suggests incomplete graph
 
 \subsection{Directed cycles}
 
 It can be useful to remove directed cycles from the internal representation of a graph
-(before drawing the edges in the correct, original order)
+(before drawing them back in their correct, original directions)
 -- for example, in order to assign a consistent rank to each node.
 This is achieved by reversing certain edges.
-\citet{gansner1993} present  Minimising the 
+\citet{gansner1993} show that a simple depth-first-search \ldots  Minimising the number of edges is more difficult, \citeauthor{gansner1993} \ldots
 
 \subsection{Undirected cycles}
 
 Undirected cycles can be elimiated by ignoring certain edges altogether, to produce a tree.  [citation needed]
-
-
-
-
-
-
-\section{A force directed approach}
 
 
 
@@ -213,12 +218,16 @@ Various [things] have been developed in response to percieved shortcomings in Ja
 
 Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript \ldots this is interesting but \ldots
 
-Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. \todo{performance overhead\ldots}
+Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. \todo{performance overhead etc\ldots}
 
-Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}} and GHCJS\footnote{} are compilers from Haskell to JavaScript. These are perhaps most interesting [?], given that 
+Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}} and GHCJS\footnote{} are compilers from Haskell to JavaScript; SMLtoJS\footnote{\url{http://www.smlserver.org/smltojs/}} is a Standard ML--to-JavaScript compiler. These are perhaps most interesting [?], since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''.
+
 
 
 ASM\footnote{} is a strict subset of 
+
+[However]
+
 
 \section{Software development methodologies}
 
@@ -233,11 +242,15 @@ Reuse of existing software libraries is widely [?] understood to be [a very sens
 \begin{description}
     \item[Springy] is
     \item[Arbor] is an implementation of the Barnes-Hut algorithm for 
-    \item[The JavaScript InfoVis Toolkit]
+    \item[The JavaScript InfoVis Toolkit] contains algorithms ported from \ldots
     \item[vis.js]
 \end{description}
 
-The Graphviz library contains several algorithms, including \ldots [as described in \ldots]. Although it is written in C, Emscripten \footnote{\url{emscripten.org}} compiles LLVM bitcode (readily compiled from C code) [as described earlier?] to the ASM subset of JavaScript -
+The Graphviz library contains several algorithms, including \ldots [as described in \ldots]. Although it is written in C, Emscripten \footnote{\url{http://emscripten.org}} can compile LLVM bitcode (readily compiled from C code) [as described earlier?] to the ASM subset of JavaScript -
+
+These implementations also provide lessons on the structure of \ldots
+
+
 
 \bibliography{report}
 
