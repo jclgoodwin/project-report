@@ -44,31 +44,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Introduction?}
-
+\chapter{Introduction}
 
 \section{The Goal Structuring Notation}
 
-The Goal Structuring Notation (GSN) is a graphical agumentation notation.
-It allows logical arguments - in particular, safety arguments, which \ldots  - to be represented explicitly, in a much clearer way than textual arguments allow.
+The Goal Structuring Notation (GSN) is a graphical argumentation notation,
+which can be used to communicate logical arguments more clearly and [well-structuredly] than textual arguments allow.
+\citet{kelly2004goal} present the GSN as ``a safety agrument notation'',
+referring to \emph{safety cases} used to argue that safety-critical systems are sufficiently safe,
+particularly in the aerospace, railway and defence industries.
+However, the GSN is also used for presenting other kinds of logical argument: for example, validating computer simulations of biological models \cite{insilico}.
 
-GSN arguments are directed, multivariate \todo{I think}, hierachical graphs.
-
-An argument begins with a single, main goal or claim\todo{two words used interchangably\ldots}. rectangle
-
-Nodes within GSN arguments contain text, and represent ``claims, strategies, evidence, and context/assumption/justification annotations'';
-edges represent relationships between these.
+GSN arguments are directed, multivariate, hierachical graphs.
+The nodes are symbols containing text, representing ``claims, strategies, evidence, and context/assumption/justification annotations''.
+Edges link these elements together, forming a ``goal structure''.
 
 \begin{description}
     \item[Goal/claim]
     a statement that can be assessed to be true or false
     \item[Strategy]
+
 \end{description}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{example_argument.pdf}
-    \caption{An example argument, from the GSN specification [I don't think this layout is very good, because\ldots]    }
+    \caption{An example argument, from the GSN specification \cite{gsnstandard} [I don't think this layout is very good, because\ldots]    }
 \end{figure}
 
 \ldots
@@ -77,7 +78,7 @@ other notations: Connt
 
 \section{Artoo}
 
-Artoo (Argumentation Tool) is a web-based tool intended for drawing GSN arguments.
+Artoo (Argumentation Tool) is a web-based tool for drawing GSN arguments.
 
 \ldots
 
