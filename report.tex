@@ -1,5 +1,5 @@
 \documentclass[authoryearcitations]{UoYCSproject}
-\usepackage{todonotes}
+\usepackage{todonotes,mdwlist}
 
 \SetExtraKerning
    [unit = space]%
@@ -9,7 +9,7 @@
 \author{Joshua Goodwin}
 \title{Layout of arguments in the Artoo tool}
 % \date{}
-\supervisor{}
+\supervisor{Fiona Polack and Paul Andrews}
 \BEng
 
 \wordcount{?}
@@ -42,39 +42,56 @@
 % \label{sec:start}
 % \thispagestyle{empty}\cleardoublepage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Introduction}
 
 \section{The Goal Structuring Notation}
 
 The Goal Structuring Notation (GSN) is a graphical argumentation notation,
-which can be used to communicate logical arguments more clearly and [well-structuredly] than textual arguments allow.
+which aims to allow the communication of logical arguments more clearly, and in a more structured way, than prose.
+
 \citet{kelly2004goal} present the GSN as ``a safety agrument notation'',
 referring to \emph{safety cases} used to argue that safety-critical systems are sufficiently safe,
 particularly in the aerospace, railway and defence industries.
-However, the GSN is also used for presenting other kinds of logical argument: for example, validating computer simulations of biological models \cite{insilico}.
+\citet{Habli:2006:PPC:1183088.1183090} list some of the applications of the GSN up to \citeyear{Habli:2006:PPC:1183088.1183090}:
 
-GSN arguments are directed, multivariate, hierachical graphs.
+\begin{itemize*}
+  \item{Eurofighter Aircraft Avionics Safety Justification}
+  \item{Hawk Aircraft Safety Justification}
+  \item{U.K. Ministry of Defence Site Safety Justifications}
+  \item{U.K. Dorset Coast Railway Re-signalling Safety Justification}
+  \item{Submarine Propulsion Safety Justifications}
+  \item{Safety Justification of UK Military Air Traffic Management Systems}
+  \item{London Underground Jubilee Line Extension Safety Justification}
+  \item{Swedish Air Traffic Control Applications}
+  \item{Rolls-Royce Trent Engine Control Systems Safety Arguments}
+\end{itemize}
+
+There is also evidence of the GSN being used used for presenting other kinds of logical argument:
+for example, arguing the security of a system\cite{plop}, and validating computer simulations of biological models \cite{insilico}. 
+
+GSN arguments are directed, multivariate, hierarchical graphs.
 The nodes are symbols containing text, representing ``claims, strategies, evidence, and context/assumption/justification annotations''.
 Edges link these elements together, forming a ``goal structure''.
-
-\begin{description}
-    \item[Goal/claim]
-    a statement that can be assessed to be true or false
-    \item[Strategy]
-
-\end{description}
+An example is shown in figure~\ref{fig:example}.
 
 \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{example_argument.pdf}
-    \caption{An example argument, from the GSN specification \cite{gsnstandard} [I don't think this layout is very good, because\ldots]    }
+  \centering
+  \includegraphics[width=\textwidth]{example_argument.pdf}
+  \caption{An example argument, from the GSN specification \cite{gsnstandard}]}
+   \label{fig:example}
 \end{figure}
 
-\ldots
+\begin{description}
+  \item[Goal/claim]
+  a statement that can be assessed to be true or false
+  \item[Strategy]
+  \item[Evidence]
+  \item[Context]
+  \item[Assumption]
+  \item[Justification]
+\end{description}
 
-other notations: Connt
+ther notations: Connt
 
 \section{Artoo}
 
@@ -82,33 +99,33 @@ Artoo (Argumentation Tool) is a web-based tool for drawing GSN arguments.
 
 \ldots
 
-other tools also exist for drawing GSN argments.
+other tools also exist for drawing GSN arguments.
 
 \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{graphics/artoo_screenshot.png}
-    \caption{The Artoo tool, displaying an argument }
+  \centering
+  \includegraphics[width=\textwidth]{graphics/artoo_screenshot.png}
+  \caption{The Artoo tool, displaying an argument }
 \end{figure}
-
-\todo{use the same argument as in the naked dexample?}
 
 \section{[what I'm going to do]}
 
 This [report/project/thing] will \ldots
 
-    \begin{enumerate}
-        \item \begin{itemize}
-            \item ,
-        \end{itemize}
-    \end{enumerate}
+  \begin{enumerate}
+    \item \begin{itemize}
+      \item ,
+    \end{itemize}
+  \end{enumerate}
 
 \subsection{Problem definition?}
 
-Input:
-
-as I said earlier
+Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges.
+In this instance, an algorithm might take into account additional data available to it:
+the type of each node (goal, context, strategy etc.), and its size.
+Furthermore, although a 
 
 \subsection{Problem definition?}
+
 
 Artoo also allows the drawing of invalid GSN argments ...
 if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
@@ -151,9 +168,8 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 \section{What makes a good graph layout?}
 
-Speed is an obvious desirable property of any 
 
-GSN was intended to be clearer than textual arguments \ldots
+GSN was intended to be clearer than textual arguments, 
 
 The Gestalt principles of visual perception, based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries, are sometimes [?] used to [inform/justify?] heuristics
 
@@ -165,9 +181,9 @@ Some studies have tried \ldots cognitive effects [Purchase et al?]
 
 There can be many practical motivations for minimising edge crossings.
 When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
-he wondered about the minumum number of crossings in a graph representing
+he wondered about the minimum number of crossings in a graph representing
 brick kilns, storage sites and the paths between them \ldots
-When a graph represents an electrical circuit, the  
+When a graph represents an electrical circuit, 
 
 [But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
 
@@ -241,10 +257,10 @@ In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a G
 Reuse of existing software libraries is widely [?] understood to be [a very sensible idea]. There are , which \ldots for comparison with 
 
 \begin{description}
-    \item[Springy] is
-    \item[Arbor] is an implementation of the Barnes-Hut algorithm for 
-    \item[The JavaScript InfoVis Toolkit] contains algorithms ported from \ldots
-    \item[vis.js]
+  \item[Springy] is
+  \item[Arbor] is an implementation of the Barnes-Hut algorithm for 
+  \item[The JavaScript InfoVis Toolkit] contains algorithms ported from \ldots
+  \item[vis.js]
 \end{description}
 
 The Graphviz library contains several algorithms, including \ldots [as described in \ldots]. Although it is written in C, Emscripten \footnote{\url{http://emscripten.org}} can compile LLVM bitcode (readily compiled from C code) [as described earlier?] to the ASM subset of JavaScript -
@@ -252,6 +268,11 @@ The Graphviz library contains several algorithms, including \ldots [as described
 These implementations also provide lessons on the structure of \ldots
 
 
+\chapter{implement}
+
+\section{Springy}
+
+Spri
 
 \bibliography{report}
 
