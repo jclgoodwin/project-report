@@ -1,10 +1,10 @@
 \documentclass[authoryearcitations]{UoYCSproject}
 \usepackage{todonotes,mdwlist}
 
-\SetExtraKerning
-   [unit = space]%
-   {encoding = *}%
-   {\ = {500,}}
+% \SetExtraKerning
+%    [unit = space]%
+%    {encoding = *}%
+%    {\ = {500,}}
 
 \author{Joshua Goodwin}
 \title{Layout of arguments in the Artoo tool}
@@ -42,100 +42,9 @@
 % \label{sec:start}
 % \thispagestyle{empty}\cleardoublepage
 
-\chapter{Introduction}
-
-\section{The Goal Structuring Notation}
-
-The Goal Structuring Notation (GSN) is a graphical argumentation notation,
-which aims to allow the communication of logical arguments more clearly, and in a more structured way, than prose.
-
-\citet{kelly2004goal} present the GSN as ``a safety agrument notation'',
-referring to \emph{safety cases} used to argue that safety-critical systems are sufficiently safe,
-particularly in the aerospace, railway and defence industries.
-\citet{Habli:2006:PPC:1183088.1183090} list some of the applications of the GSN up to \citeyear{Habli:2006:PPC:1183088.1183090}:
-
-\begin{itemize*}
-  \item{Eurofighter Aircraft Avionics Safety Justification}
-  \item{Hawk Aircraft Safety Justification}
-  \item{U.K. Ministry of Defence Site Safety Justifications}
-  \item{U.K. Dorset Coast Railway Re-signalling Safety Justification}
-  \item{Submarine Propulsion Safety Justifications}
-  \item{Safety Justification of UK Military Air Traffic Management Systems}
-  \item{London Underground Jubilee Line Extension Safety Justification}
-  \item{Swedish Air Traffic Control Applications}
-  \item{Rolls-Royce Trent Engine Control Systems Safety Arguments}
-\end{itemize}
-
-There is also evidence of the GSN being used used for presenting other kinds of logical argument:
-for example, arguing the security of a system\cite{plop}, and validating computer simulations of biological models \cite{insilico}. 
-
-GSN arguments are directed, multivariate, hierarchical graphs.
-The nodes are symbols containing text, representing ``claims, strategies, evidence, and context/assumption/justification annotations''.
-Edges link these elements together, forming a ``goal structure''.
-An example is shown in figure~\ref{fig:example}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{example_argument.pdf}
-  \caption{An example argument, from the GSN specification \cite{gsnstandard}]}
-   \label{fig:example}
-\end{figure}
-
-\begin{description}
-  \item[Goal/claim]
-  a statement that can be assessed to be true or false
-  \item[Strategy]
-  \item[Evidence]
-  \item[Context]
-  \item[Assumption]
-  \item[Justification]
-\end{description}
-
-ther notations: Connt
-
-\section{Artoo}
-
-Artoo (Argumentation Tool) is a web-based tool for drawing GSN arguments.
-
-\ldots
-
-other tools also exist for drawing GSN arguments.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{graphics/artoo_screenshot.png}
-  \caption{The Artoo tool, displaying an argument }
-\end{figure}
-
-\section{[what I'm going to do]}
-
-This [report/project/thing] will \ldots
-
-  \begin{enumerate}
-    \item \begin{itemize}
-      \item ,
-    \end{itemize}
-  \end{enumerate}
-
-\subsection{Problem definition?}
-
-Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges.
-In this instance, an algorithm might take into account additional data available to it:
-the type of each node (goal, context, strategy etc.), and its size.
-Furthermore, although a 
-
-\subsection{Problem definition?}
 
 
-Artoo also allows the drawing of invalid GSN argments ...
-if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
-If the algorithm [is exposed to the user by a] button, then there is the poissibility of checking 
-
-\subsubsection{\ldots}
-
-Already, Artoo only works a limited set of web browsers: recent versions of \ldots
-The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using functions already in the code -- it is very unlikely that there will be any problems \ldots
-
+\input{introduction.tex}
 
 
 \chapter{Literature review}
@@ -171,7 +80,9 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 GSN was intended to be clearer than textual arguments, 
 
-The Gestalt principles of visual perception, based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries, are sometimes [?] used to [inform/justify?] heuristics
+The Gestalt principles of visual perception,
+based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
+are sometimes [?] used to [inform/justify?] graph layouts.
 
 The principle 
 
@@ -229,7 +140,9 @@ Undirected cycles can be elimiated by ignoring certain edges altogether, to prod
 
 
 
-\section{[Alternatives to JavaScript]}
+\section{Implementation}
+
+The Artoo tool is written mainly in JavaScri
 
 Various [things] have been developed in response to percieved shortcomings in JavaScript \ldots
 
