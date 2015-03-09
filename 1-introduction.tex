@@ -33,12 +33,12 @@ problems of clearly expressing and presenting safety argument.''
   \item{Rolls-Royce Trent Engine Control Systems Safety Arguments}
 \end{itemize*}
 
-There is also evidence of the GSN being used used for presenting other kinds of logical argument:
+There is also evidence of the GSN being used for presenting other kinds of logical argument:
 for example,
-arguing the security of a system\cite{plop},
-and validating computer simulations of biological models \cite{insilico}\cite{royal}. The field of argumentation is broad \ldots
+arguing the security of a system \cite{plop},
+and validating computer simulations of biological models \cite{insilico} \todo{space or not? (!)} \cite{royal}. The field of argumentation is broad \ldots \todo{potential use by lawyers, philosophers?}
 
-GSN arguments are directed, multivariate, hierarchical graphs.
+GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
 The nodes are made up of the following types of element:
 
 \begin{description}
@@ -69,7 +69,7 @@ Edges connect these elements together, forming an overall ``goal structure''.
   \includegraphics[width=\textwidth]{example_argument.pdf}
   \caption{An example GSN argument, about a safety case,
     from the GSN specification \cite{gsnstandard}}
-  \label{fig:example}
+  \label{fig:crampedex1}
 \end{figure}
 
 
@@ -77,33 +77,34 @@ Edges connect these elements together, forming an overall ``goal structure''.
 
 \section{Artoo}
 
-Artoo (Argumentation Tool) is a web-based tool for drawing graph structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and is therefore particularly well-suited to using the GSN to argue about biological simulations, \todo{how?} as \citet*{royal} do in a paper which both introduces Artoo and the use of the the argumentation (specifically the GSN) for this \ldots \todo{a bit clumsy?}
+Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and [is therefore particularly well-suited to?] using the GSN to argue about biological simulations (for example, it allows arguments to be ``unfinished'') as \citet{royal} do in a paper which introduces both Artoo and the use of the argumentation (specifically using the GSN) for this \ldots \todo{a bit clumsy?}
+
+Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers. Arguents are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics and layout), and can be exported as bitmap images.
 
 \ldots
 
-Artoo is available for free under a GNU GPLv3 licence. Similar tools also exist for drawing GSN arguments, but they are largely commercial and 
+Artoo is available for free under a GNU GPLv3 licence.
+This means that anyone can use it and modify it, within the terms of the license.
+Other tools also exist for drawing GSN arguments, but they are typically commercial and closed-source, and emphasise the use of the GSN for presenting safety arguments.
+Examples include Dependable Computing's Argument Editor\footnote{\url{http://www.dependablecomputing.com/tools/index.html}} \ldots
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{graphics/artoo_screenshot.png}
-  \caption{The Artoo tool, displaying an argument }
+  \caption{The Artoo tool, displaying an argument}
 \end{figure}
-
-
 
 
 \section{Automatic layout of GSN arguments in the Artoo tool}
 
-Currently, users 
+Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
+(Edges are drawn automatically, based on connections defined \todo{?} by the user.)
+Clearly, this becomes difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' \todo{cite somehow?}.
+Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{needs more something?}.
 
-This [report/project/thing] will \ldots
+For these reasons, graph drawing tools often include automatic layout features. For example, Dependable Computing's Argument Editor \todo{see footnote 1?}, 
 
-  \begin{enumerate}
-    \item
-      \begin{itemize}
-      \item ,
-    \end{itemize}
-  \end{enumerate}
+
 
 \subsection{Problem definition}
 
@@ -112,14 +113,28 @@ In the case of a GSN argument, there is additional information associated with t
 
 \begin{itemize}
   \item
-    Nodes have sizes, rather than being simple points. \todo{not \emph{that} unusual, but \emph{a bit} unusual~ \ldots }
+    Each node has a width and a height, whereas in the simplest model of a graph nodes are single points. \todo{,?}
   \item
-    There are multiple types of node and edge, and these should influence where a node is place. The GSN specification's layout guidance suggests that parent and child goals, stategies and solutios should be placed 
+    There are various types of node and edge, and the type of a node should influence where it is placed. The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, stategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
 \end{itemize}
+
+\ldots
+
+\subsection{this probably belongs later:}
 
 Artoo also allows the drawing of invalid GSN argments ...
 if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
 If the algorithm [is exposed to the user by a] button, then there is the poissibility of checking 
 
 Already, Artoo only works a limited set of web browsers: recent versions of \ldots
-The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using functions already in the code -- it is very unlikely that there will be any problems \ldots
+The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using methods already in the code -- it is very unlikely that there will be any problems \ldots
+
+\subsection{method}
+
+
+  \begin{enumerate}
+    \item
+      \begin{itemize}
+      \item ,
+    \end{itemize}
+  \end{enumerate}
