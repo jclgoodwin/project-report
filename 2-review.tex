@@ -1,4 +1,4 @@
-\chapter{Literature review}
+\chapter{this is not a literture review}
 
 
 \section{A brief history}
@@ -8,13 +8,24 @@ In 1736, \citet{euler} solved the Seven Bridges of Ka\"{o}nigsberg problem by dr
 \todo{a strange paper to choose. perhaps multiple citations?}
 pinpoint his use of this method as the birth of graph theory.
 
-In 1963, \citet{tutte} popularised the problem of graph drawing when he presented 
+Graph theory has many applications to modelling the real world \ldots
+
+\subsection{Tutte-embeddings}
+
+In 1963, \citet{tutte} popularised [says who] the problem of graph drawing when he presented 
 
 ["who showed that polyhedral graphs may be drawn in the plane with all faces convex by fixing the vertices of the outer face of a planar embedding of the graph into convex position, placing a spring-like attractive force on each edge, and letting the system settle into an equilibrium"]
 
-Perhaps his most relevant \ldots was the idea of modelling the graph as a system of springs and masses \ldots 
+This contained two important ideas: embeddings(, , and the application of an attractive spring-like attractive force \ldots 
+
+\subsection{Knuth}
 
 In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} \todo{find out page number!} says this is [the first example of an algorithm for visualising information] although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
+
+\citet{Knuth63} does not describe his flowcharts as graphs,
+
+The annual symposium is 
+
 
 \ldots
 
@@ -30,8 +41,14 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 \section{What makes a good graph layout?}
 
+GSN was intended to be a clearer way of presenting arguments than free text,
+and the layout of arguments can affect this clarity.
 
-GSN was intended to be clearer than textual arguments, 
+The GSN arguments 
+
+\subsection{The human gold-standard}
+
+Real argument  can be found in literature. For example, 
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
@@ -41,14 +58,16 @@ The principle
 
 Some studies have tried \ldots cognitive effects [Purchase et al?]
 
+characterising 
+
 
 \subsection{Edge crossings}
 
-There can be many practical motivations for minimising edge crossings.
-When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
-he wondered about the minimum number of crossings in a graph representing
-brick kilns, storage sites and the paths between them \ldots
-When a graph represents an electrical circuit, 
+% There can be many practical motivations for minimising edge crossings.
+% When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
+% he wondered about the minimum number of crossings in a graph representing
+% brick kilns, storage sites and the paths between them \ldots
+% When a graph represents an electrical circuit, 
 
 [But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
 
@@ -63,6 +82,9 @@ When a graph represents an electrical circuit,
 
 Force directed graph layout algorithms are the descendents of \todo{as someone has observed?} \citet{tutte} \ldots a successor to \citet{tutte} spring embedding
 
+
+
+
 [gansner 199*]
 
 \subsection{grid}
@@ -70,11 +92,9 @@ Force directed graph layout algorithms are the descendents of \todo{as someone h
 
 
 
-\subsection{forc dire}
+\subsection{Layered graph drawing}
 
-
-
-
+Layered or hierachical graph drawing  \ldots sometimes generalised as Sugiyama's method, after \ldots who pioineered this technique \ldots 
 
 
 
@@ -103,6 +123,13 @@ This is achieved by reversing certain edges.
 
 Undirected cycles can be elimiated by ignoring certain edges altogether, to produce a tree.  [citation needed]
 
+
+
+
+
+
+
+
 \section{Implementation}
 
 The Artoo tool is written mainly in JavaScript, numerous different 
@@ -124,17 +151,18 @@ ASM\footnote{} is a strict subset of
 
 \section{Software development methodologies}
 
-In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a Good Medium for Expressing Poorly Understood and Sloppily Formulated Ideas''.
+In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a Good Medium for Expressing Poorly Understood and Sloppily Formulated Ideas''
 (More recently, [sussman] gave a talk with the same title \ldots \todo{\url{http://vimeo.com/12060509}}.)
 
+This idea will be 
 
 \section{}
 
 Reuse of existing software libraries is widely [?] understood to be [a very sensible idea]. There are , which \ldots for comparison with 
 
 \begin{description}
-  \item[Springy] is
-  \item[Arbor] is an implementation of the Barnes-Hut algorithm for 
+  \item[Springy] is 
+  \item[Arbor] is an implementation of the Barnes-Hut algorithm described in  
   \item[The JavaScript InfoVis Toolkit] contains algorithms ported from \ldots
   \item[vis.js]
 \end{description}

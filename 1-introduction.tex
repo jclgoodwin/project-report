@@ -94,7 +94,6 @@ Examples include Dependable Computing's Argument Editor\footnote{\url{http://www
   \caption{The Artoo tool, displaying an argument}
 \end{figure}
 
-
 \section{Automatic layout of GSN arguments in the Artoo tool}
 
 Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
@@ -102,9 +101,12 @@ Currently, users of Artoo have full control over the layout of arguments they dr
 Clearly, this becomes difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' \todo{cite somehow?}.
 Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{needs more something?}.
 
-For these reasons, graph drawing tools often include automatic layout features. For example, Dependable Computing's Argument Editor \todo{see footnote 1?}, 
+For these reasons, graph drawing tools often include automatic layout features. Examples include, Dependable Computing's Argument Editor \todo{see footnote 1?} \ldots
 
-
+This project aims to add an automatic layout feature to Artoo.
+How this will be exposed to the user is still to be determined. 
+The process will involve researching and implementing various graph layout algorithms,
+and testing them [in a structured, repeatable way] in order to compare them. 
 
 \subsection{Problem definition}
 
@@ -115,8 +117,13 @@ In the case of a GSN argument, there is additional information associated with t
   \item
     Each node has a width and a height, whereas in the simplest model of a graph nodes are single points. \todo{,?}
   \item
-    There are various types of node and edge, and the type of a node should influence where it is placed. The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, stategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
+    There are various types of node and edge, and the type of a node should influence where it is placed. Specifically: goals, stategies and solutions should be treated differently to context, assumption and justification elements.
+    \begin{itemize}
+    \item The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, stategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
+    \end{itemize}
 \end{itemize}
+
+A structured, repeatable way of assessing and comparing graph layout algorithms will be produced. 
 
 \ldots
 
