@@ -36,7 +36,8 @@ problems of clearly expressing and presenting safety argument.''
 There is also evidence of the GSN being used for presenting other kinds of logical argument:
 for example,
 arguing the security of a system \cite{plop},
-and validating computer simulations of biological models \cite{insilico} \todo{space or not? (!)} \cite{royal}. The field of argumentation is broad \ldots \todo{potential use by lawyers, philosophers?}
+and validating computer simulations of biological models \cite{insilico}\cite{royal}.
+The broader field of argumentation theory encompasses fields \such as law and philosophy 
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
 The nodes are made up of the following types of element:
@@ -79,7 +80,7 @@ Edges connect these elements together, forming an overall ``goal structure''.
 
 Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and [is therefore particularly well-suited to?] using the GSN to argue about biological simulations (for example, it allows arguments to be ``unfinished'') as \citet{royal} do in a paper which introduces both Artoo and the use of the argumentation (specifically using the GSN) for this \ldots \todo{a bit clumsy?}
 
-Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers. Arguents are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics and layout), and can be exported as bitmap images.
+Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers. Arguments are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics and layout), and can be exported as bitmap images.
 
 \ldots
 
@@ -117,9 +118,9 @@ In the case of a GSN argument, there is additional information associated with t
   \item
     Each node has a width and a height, whereas in the simplest model of a graph nodes are single points. \todo{,?}
   \item
-    There are various types of node and edge, and the type of a node should influence where it is placed. Specifically: goals, stategies and solutions should be treated differently to context, assumption and justification elements.
+    There are various types of node and edge, and the type of a node should influence where it is placed. Specifically: goals, strategies and solutions should be treated differently to context, assumption and justification elements.
     \begin{itemize}
-    \item The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, stategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
+    \item The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, strategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
     \end{itemize}
 \end{itemize}
 
@@ -129,9 +130,9 @@ A structured, repeatable way of assessing and comparing graph layout algorithms 
 
 \subsection{this probably belongs later:}
 
-Artoo also allows the drawing of invalid GSN argments ...
+Artoo also allows the drawing of invalid GSN arguments ...
 if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
-If the algorithm [is exposed to the user by a] button, then there is the poissibility of checking 
+If the algorithm [is exposed to the user by a] button, then there is the possibility of checking a structure's validity; however, partr
 
 Already, Artoo only works a limited set of web browsers: recent versions of \ldots
 The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using methods already in the code -- it is very unlikely that there will be any problems \ldots

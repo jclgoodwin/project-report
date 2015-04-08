@@ -41,14 +41,44 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 \section{What makes a good graph layout?}
 
-GSN was intended to be a clearer way of presenting arguments than free text,
-and the layout of arguments can affect this clarity.
+The GSN was intended to be a clearer way of presenting arguments than free text.
+The simple act of breaking down arguments into their constituent parts achieves some of this clarity,
+but the notation's graphical nature also appears to be important.
+This raises the question of whether the particular layout of graphs can affect their comprehensibility.
 
-The GSN arguments 
+\subsection{Common goals}
 
-\subsection{The human gold-standard}
+It is tempting to assume that the seemingly highly prized characteristics of layouts produced by certain algorithms are always relevant. After all, why else would they be stated as advantages? However, graph theory -- and, in turn, graph layout -- has a broad range of applications. \todo{Literature does not always fully the advantages of layouts' advantages \ldots does it?}
 
-Real argument  can be found in literature. For example, 
+For example, there can be many practical motivations for minimising edge crossings.
+When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
+he considered the minimum number of crossings in a graph representing
+brick kilns, storage sites and the paths between them \todo{cite}.
+Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
+
+Therefore, seemingly desirable characteristics of layouts produced by certain algorithms are not always relevant to a particular application.
+Clearly, the characteristics of a layout algorithm suitable for GSN arguments may be different to \ldots
+
+\subsection{The human gold-standard \todo{could move this above 2.2.1}}
+
+One understanding of the ideal layout of a GSN argument can be reached by observing manually layed out arguments ``in the wild''.
+Examples can be found in literature, such as \citet{insilico}, \citet{Habli:2006:PPC:1183088.1183090} \ldots
+
+Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
+Although the specification document does not fully justify its recommendations, they seem reasonable.
+
+Parent and child goals, strategies and solutions should be placed above and below each other. This allows the hierarchy of the graph to be understood without examining
+
+and context and justification elements are placed to the sides -- this positioning reflects their semantic role.
+
+\subsection{Comprehension}
+
+Some studies have tried \ldots cognitive effects [Purchase et al?]
+
+characterising 
+
+\subsection{}
+
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
@@ -56,18 +86,11 @@ are sometimes [?] used to [inform/justify?] graph layouts.
 
 The principle 
 
-Some studies have tried \ldots cognitive effects [Purchase et al?]
 
-characterising 
 
 
 \subsection{Edge crossings}
 
-% There can be many practical motivations for minimising edge crossings.
-% When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
-% he wondered about the minimum number of crossings in a graph representing
-% brick kilns, storage sites and the paths between them \ldots
-% When a graph represents an electrical circuit, 
 
 [But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
 
@@ -78,9 +101,9 @@ characterising
 
 \section{Approaches to graph layout}
 
-\subsection{Force directed algortihms}
+\subsection{Force directed algorithms}
 
-Force directed graph layout algorithms are the descendents of \todo{as someone has observed?} \citet{tutte} \ldots a successor to \citet{tutte} spring embedding.
+Force directed graph layout algorithms are the descendants of \todo{as someone has observed?} \citet{tutte} \ldots a successor to \citet{tutte} spring embedding.
 
 Force directed layout is simple to understand, being based on physical laws we encounter in the world 
 
@@ -94,7 +117,7 @@ Force directed layout is simple to understand, being based on physical laws we e
 
 \subsection{Layered graph drawing}
 
-Layered or hierachical graph drawing  \ldots sometimes generalised as Sugiyama's method, after \ldots who pioineered this technique \ldots 
+Layered or hierarchical graph drawing  \ldots sometimes generalised as Sugiyama's method, after \ldots who pioneered this technique \ldots 
 
 
 
@@ -103,7 +126,7 @@ Layered or hierachical graph drawing  \ldots sometimes generalised as Sugiyama's
 
 [move to Requirements?]
 
-The GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard} gives some guidance on the layout of arguments \ldots
+The  \ldots
 
 
 
@@ -121,7 +144,7 @@ This is achieved by reversing certain edges.
 
 \subsection{Undirected cycles}
 
-Undirected cycles can be elimiated by ignoring certain edges altogether, to produce a tree.  [citation needed]
+Undirected cycles can be eliminated by ignoring certain edges altogether, to produce a tree.  [citation needed]
 
 
 
@@ -134,7 +157,7 @@ Undirected cycles can be elimiated by ignoring certain edges altogether, to prod
 
 The Artoo tool is written mainly in JavaScript, numerous different 
 
-Various [things] have been developed in response to percieved shortcomings in JavaScript \ldots
+Various [things] have been developed in response to perceived shortcomings in JavaScript \ldots
 
 Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript \ldots this is interesting but \ldots
 
