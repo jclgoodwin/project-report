@@ -48,6 +48,38 @@ This raises the question of whether the particular layout of graphs can affect t
 
 \subsection{Common goals}
 
+\citet{DiBattista1997303} compared 4 algorithms, by using implementations of them to lay out 11,582 graphs generated from 112 real life applications. They compared the resulting layouts, based on nine quality metrics:
+
+\begin{description}
+\item[Area]
+``area of the smallest rectangle with horizontal and vertical sides covering the drawing''
+\item[Cross]
+total number of edge crossings
+\item[TotalBends]
+total number of edge bends
+\item[TotalEdgeLen]
+total length of all edges
+\item[MaxEdgeBends]
+``maximum number of bends on any edge''
+\item[MaxEdgeLen]
+``maximum length of any edge''
+\item[UnifBends]
+``standard deviation of the number of bends on the edges''
+\item[UnifLen]
+``standard deviation of the edge length''
+\item[ScreenRatio]
+``deviation from the optimal aspect ratio, computed as the difference between the width/height ratio of the best of the two possible orientations (portrait and landscape) of the drawing and the standard 4/3 ratio of a computer screen. ''
+\end{description}
+
+They boldly assert: ``It is widely accepted \ldots that small values of the above measures are related to the perceived aesthetic appeal and visual effectiveness of the drawing.''
+But widely accepted things can be wrong. \todo{Galileo, Copernicus!?}
+
+The \textbf{ScreenRatio} metric is perhaps the [superlative] [adjective], because statistics such as those published by Unity Technologies\footnote{\url{http://stats.unity3d.com/}} show that 4:3 is no longer the most common computer screen aspect ratio. 
+Furthermore, and , a desirable aspect ratio . If aesthetic beauty is important, then perhaps the golden ratio 
+Being only one metric of nine, it is not given undue significance, but it might be better ignored altogether.
+
+Aesthetic appeal is likely to satisfy users of tools such as Artoo, making them less inclined to manually adjust layouts.
+
 It is tempting to assume that the seemingly highly prized characteristics of layouts produced by certain algorithms are always relevant. After all, why else would they be stated as advantages? However, graph theory -- and, in turn, graph layout -- has a broad range of applications. \todo{Literature does not always fully the advantages of layouts' advantages \ldots does it?}
 
 For example, there can be many practical motivations for minimising edge crossings.
@@ -57,7 +89,18 @@ brick kilns, storage sites and the paths between them \todo{cite}.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
 
 Therefore, seemingly desirable characteristics of layouts produced by certain algorithms are not always relevant to a particular application.
-Clearly, the characteristics of a layout algorithm suitable for GSN arguments may be different to \ldots
+Clearly, the characteristics of a layout algorithm suitable for GSN arguments must \ldots
+
+\subsection{Gestalt principles}
+
+
+The Gestalt principles of visual perception,
+based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
+are sometimes [?] used to [inform/justify?] graph layouts.
+
+The principle 
+
+The relationship between the Gestalt principles and \ldots can seem hazy and tenuous
 
 \subsection{The human gold-standard \todo{could move this above 2.2.1}}
 
@@ -67,26 +110,36 @@ Examples can be found in literature, such as \citet{insilico}, \citet{Habli:2006
 Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
 Although the specification document does not fully justify its recommendations, they seem reasonable.
 
-Parent and child goals, strategies and solutions should be placed above and below each other. This allows the hierarchy of the graph to be understood without examining
+The specification suggests that arguments should flow down the page, starting with an abstract parent goal at the top, progressing downwards as this is refined into more concrete child strategies, goals and solutions -- this allows the hierarchy of the graph to be understood without looking at the directions of the connecting arrows.
+Context and justification elements are placed off to the sides, a positioning which reflects their semantic role.
 
-and context and justification elements are placed to the sides -- this positioning reflects their semantic role.
+The layout guidance is not demonstrated with specific diagrams, but there are many examples elsewhere in the document.
+These follow the guidelines, but . As discussed in, the layout shown in figure~\ref{fig:crampedex1} is more cramped than it could be.
+Another example, shown in figure~\ref{fig:unaligned_siblings}, ignores \todo{I think ``violates'' would be wrong} Gestalt  \ldots
+This leads to the conclusion that, although examples found in literature are not always are perfectly laid out, the imperfections are often easy to identify.
 
-\subsection{Comprehension}
+\begin{figure}
+    \includegraphics[width=\textwidth]{graphics/unaligned_siblings.pdf}
+    \caption{A fragment of a GSN argument,
+            from the GSN specification \citep[figure~42, section~2.3.6.5, pp.~34]{gsnstandard}}
+    \label{fig:unalignedsiblings}
+\end{figure}
 
-Some studies have tried \ldots cognitive effects [Purchase et al?]
+\begin{figure}
+    \includegraphics[width=\textwidth]{graphics/aligned_siblings.pdf}
+    \caption{A modified version of figure~\ref{fig:unalignedsiblings},
+            showing more clearly that the six goal elements are at the same level in the hierarchy}
+    \label{fig:alignedsiblings}
+\end{figure}
+
+
+\subsection{Experimental comparison} 
+
+\citeauthor{DiBattista1997303}
+
+Some studies have looked a the  \ldots cognitive effects [Purchase et al?]
 
 characterising 
-
-\subsection{}
-
-
-The Gestalt principles of visual perception,
-based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
-are sometimes [?] used to [inform/justify?] graph layouts.
-
-The principle 
-
-
 
 
 \subsection{Edge crossings}
