@@ -37,10 +37,10 @@ There is also evidence of the GSN being used for presenting other kinds of logic
 for example,
 arguing the security of a system \cite{plop},
 and validating computer simulations of biological models \cite{insilico,royal}.
-The broader field of argumentation theory encompasses fields such as law and philosophy 
+The broader field of argumentation theory encompasses fields such as law and philosophy, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}. \todo{and other similar notations are used in the same fields as GSN\ldots} 
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
-The nodes are made up of the following types of element:
+The nodes are made up of \todo{a bit unclear, maybe ``each node is one of\ldots''?} the following types of element:
 
 \begin{description}
 
@@ -78,7 +78,7 @@ Edges connect these elements together, forming an overall ``goal structure''.
 
 \section{Artoo}
 
-Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and [is therefore particularly well-suited to?] using the GSN to argue about biological simulations (for example, it allows arguments to be ``unfinished'') as \citet{royal} do in a paper which introduces both Artoo and the use of the argumentation (specifically using the GSN) for this \ldots \todo{a bit clumsy?}
+Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and [is therefore particularly well-suited to?] using the GSN to argue about biological simulations [for example, it allows arguments to be ``unfinished''?] as \citet{royal} do in a paper which introduces both Artoo and the use of the argumentation (specifically using the GSN) for this \ldots \todo{a bit clumsy?}
 
 Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers. Arguments are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics and layout), and can be exported as bitmap images.
 
@@ -100,7 +100,7 @@ Examples include Dependable Computing's Argument Editor\footnote{\url{http://www
 Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
 (Edges are drawn automatically, based on connections defined \todo{?} by the user.)
 Clearly, this becomes difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' \todo{cite somehow?}.
-Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{needs more something?}.
+Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{I'm not sure this is fair, actually. A more pertinent point might be that it uses 2D space very efficiently, so must have been very difficult to lay out}. \label{sec:cramped}
 
 For these reasons, graph drawing tools often include automatic layout features. Examples include, Dependable Computing's Argument Editor \todo{see footnote 1?} \ldots
 
@@ -131,7 +131,7 @@ A structured, repeatable way of assessing and comparing graph layout algorithms 
 \subsection{this probably belongs later:}
 
 Artoo also allows the drawing of invalid GSN arguments ...
-if the graph layout [thing] is to be executed every time the graph is edited, then it must accept these .
+if the graph layout [thing] is to be executed every time the graph is edited, \todo{see one of the recommendations from \cite{5674033}} then it must accept these .
 If the algorithm [is exposed to the user by a] button, then there is the possibility of checking a structure's validity; however, partr
 
 Already, Artoo only works a limited set of web browsers: recent versions of \ldots

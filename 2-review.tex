@@ -22,7 +22,7 @@ This contained two important ideas: embeddings(, , and the application of an att
 
 In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} \todo{find out page number!} says this is [the first example of an algorithm for visualising information] although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
 
-\citet{Knuth63} does not describe his flowcharts as graphs,
+\citet{Knuth63} does not describe his flowcharts as graphs, but 
 
 The annual symposium is 
 
@@ -36,87 +36,119 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 
 
-
-
-
 \section{What makes a good graph layout?}
 
 The GSN was intended to be a clearer way of presenting arguments than free text.
-The simple act of breaking down arguments into their constituent parts achieves some of this clarity,
+The process of breaking down arguments into their constituent parts achieves some of this clarity,
 but the notation's graphical nature also appears to be important.
 This raises the question of whether the particular layout of graphs can affect their comprehensibility.
 
-\subsection{Common goals}
+Some attempts have been made to enumerate the vital characteristics of a good graph layout, often in order to understand the trade-offs between different algorithms running times and the quality of the layouts produced.
 
-\citet{DiBattista1997303} compared 4 algorithms, by using implementations of them to lay out 11,582 graphs generated from 112 real life applications. They compared the resulting layouts, based on nine quality metrics:
+
+\subsection{Quality metrics}
+
+\citet{Himsolt95comparingand} compared a total of 11 different graph layout algorithms, ranging from force directed to more specialised ones only suitable for particular categories of graph (such as planar and directed acyclic).
+As well as running time, and six quantitative layout-related criteria -- ranked in order of significance after observing the layouts produced -- there is included a ``personal rating'' (on a scale of 1--5), based on the judgements of colleagues upon viewing the layouts produced.
+However, details of the experimental method used, and detailed statistical results, are not provided.
+\todo{Some o -- force directed algorithms produce good layouts for general graphs, but have the worst running time; DAG is also good with a better running time -- }
+
+\citet{DiBattista1997303} compared four algorithms, providing more detailed results.
+Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'') they cite} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
 
 \begin{description}
-\item[Area]
+    \item[Area]
 ``area of the smallest rectangle with horizontal and vertical sides covering the drawing''
-\item[Cross]
+    \item[Cross]
 total number of edge crossings
-\item[TotalBends]
+    \item[TotalBends]
 total number of edge bends
-\item[TotalEdgeLen]
+    \item[TotalEdgeLen]
 total length of all edges
-\item[MaxEdgeBends]
+    \item[MaxEdgeBends]
 ``maximum number of bends on any edge''
-\item[MaxEdgeLen]
+    \item[MaxEdgeLen]
 ``maximum length of any edge''
-\item[UnifBends]
+    \item[UnifBends]
 ``standard deviation of the number of bends on the edges''
-\item[UnifLen]
+    \item[UnifLen]
 ``standard deviation of the edge length''
-\item[ScreenRatio]
+    \item[ScreenRatio]
 ``deviation from the optimal aspect ratio, computed as the difference between the width/height ratio of the best of the two possible orientations (portrait and landscape) of the drawing and the standard 4/3 ratio of a computer screen. ''
 \end{description}
 
 They boldly assert: ``It is widely accepted \ldots that small values of the above measures are related to the perceived aesthetic appeal and visual effectiveness of the drawing.''
-But widely accepted things can be wrong. \todo{Galileo, Copernicus!?}
+However, being widely accepted does not always preclude being wrong.
 
-The \textbf{ScreenRatio} metric is perhaps the [superlative] [adjective], because statistics such as those published by Unity Technologies\footnote{\url{http://stats.unity3d.com/}} show that 4:3 is no longer the most common computer screen aspect ratio. 
-Furthermore, and , a desirable aspect ratio . If aesthetic beauty is important, then perhaps the golden ratio 
-Being only one metric of nine, it is not given undue significance, but it might be better ignored altogether.
+The \textbf{ScreenRatio} metric is the least robust.
+In general, the ideal aspect ratio will depend on various factors, such as where the graph is displayed.
+Since the paper was published, data such as those published by Unity Technologies\footnote{\url{http://stats.unity3d.com/}} have shown that 4:3 is no longer the most common computer screen aspect ratio.
+Standard paper sizes have a different aspect ratio still.
+If aesthetic beauty is important, then perhaps the golden ratio \todo{reference} should be used instead.
+However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
 
-Aesthetic appeal is likely to satisfy users of tools such as Artoo, making them less inclined to manually adjust layouts.
 
-It is tempting to assume that the seemingly highly prized characteristics of layouts produced by certain algorithms are always relevant. After all, why else would they be stated as advantages? However, graph theory -- and, in turn, graph layout -- has a broad range of applications. \todo{Literature does not always fully the advantages of layouts' advantages \ldots does it?}
+\subsection{Evaluating quality metrics/human testing}
+
+As graph theory, and in turn graph layout, has a broad range of applications, it follows that the reasons for giving significance to different aesthetic qualities can vary depending on the application.
 
 For example, there can be many practical motivations for minimising edge crossings.
 When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
 he considered the minimum number of crossings in a graph representing
-brick kilns, storage sites and the paths between them \todo{cite}.
+brick kilns, storage sites and the paths between them \todo{cite. and this is probably redundant fluff}.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
+Clearly, none of these are relevant to laying out a graph to convey information.\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?} / these applications are very different to the layout of GSN arguments.
 
-Therefore, seemingly desirable characteristics of layouts produced by certain algorithms are not always relevant to a particular application.
-Clearly, the characteristics of a layout algorithm suitable for GSN arguments must \ldots
+\citet{5674033} observe that ``Many graph layout algorithms that have been devised over
+several decades have typically been designed in accordance with the intuitions of the algorithm designers.'' [So] attempts have been made to validate these intuitions.
+
+First, particular aesthetics have been evaluated.
+
+\ldots
+
+\subsubsection{ray purchase}
+
+Most recently, \citet{5674033} invited users to draw graphs :
+compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
+
+Alsoi 
+
+
 
 \subsection{Gestalt principles}
 
-
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
-are sometimes [?] used to [inform/justify?] graph layouts.
+are often applied to visual design and grap.
 
 The principle 
 
 The relationship between the Gestalt principles and \ldots can seem hazy and tenuous
 
-\subsection{The human gold-standard \todo{could move this above 2.2.1}}
 
-One understanding of the ideal layout of a GSN argument can be reached by observing manually layed out arguments ``in the wild''.
-Examples can be found in literature, such as \citet{insilico}, \citet{Habli:2006:PPC:1183088.1183090} \ldots
 
-Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
+
+
+\subsection{The human gold-standard \todo{this is part of the method, arguably}}
+
+Building [sort of?] on the ideas in \cite{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild''\todo{although it is not always clear whether these have been layed out ``manually'' or automatically}.
+Plenty of material can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico} \ldots
+
+Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{``should I consistently call it a ''community standard [document]'' or something else?}
+to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
 Although the specification document does not fully justify its recommendations, they seem reasonable.
 
 The specification suggests that arguments should flow down the page, starting with an abstract parent goal at the top, progressing downwards as this is refined into more concrete child strategies, goals and solutions -- this allows the hierarchy of the graph to be understood without looking at the directions of the connecting arrows.
-Context and justification elements are placed off to the sides, a positioning which reflects their semantic role.
+Context, assumption and justification elements are placed to the sides, a positioning which reflects their semantic role.
 
-The layout guidance is not demonstrated with specific diagrams, but there are many examples elsewhere in the document.
-These follow the guidelines, but . As discussed in, the layout shown in figure~\ref{fig:crampedex1} is more cramped than it could be.
-Another example, shown in figure~\ref{fig:unaligned_siblings}, ignores \todo{I think ``violates'' would be wrong} Gestalt  \ldots
-This leads to the conclusion that, although examples found in literature are not always are perfectly laid out, the imperfections are often easy to identify.
+The layout guidance is not demonstrated with specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
+
+\begin{itemize*}
+\item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense.
+\item Another example, shown in figure~\ref{fig:unalignedsiblings}, ignores \todo{I think ``violates'' would be wrong} Gestalt \ldots
+\end{itemize*}
+
+This supports a conclusion that, although examples found in literature are not always are perfectly laid out, the imperfections are at least easy to identify.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/unaligned_siblings.pdf}
@@ -132,22 +164,26 @@ This leads to the conclusion that, although examples found in literature are not
     \label{fig:alignedsiblings}
 \end{figure}
 
+Elsewhere, there are instances of authors ignoring parts of the GSN standard guidance.
+Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended; this is repeated in two other arguments in \cite[pp.~8--9]{royal} \todo{\url{http://www-course.cs.york.ac.uk/pcsw/LaTeX/lecture.pdf} says ``don't use this form as a noun'' but \url{http://www.ieee.org/documents/style_manual.pdf} (chapter V) seems to say it's OK}.
+A rough visual observation highlights that it takes slightly longer to identify the top-level claim node, but the layout is more area-efficient, and the enclosing rectangle \todo{``minimum bounding box''?} [has a more useful aspect ratio].
+The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides, but the children of strategy 1.1.1.4 do not.
 
-\subsection{Experimental comparison} 
-
-\citeauthor{DiBattista1997303}
-
-Some studies have looked a the  \ldots cognitive effects [Purchase et al?]
-
-characterising 
+\begin{figure}
+    \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
+    \caption{An argument from }
+    \label{fig:aldencentral}
+\end{figure}
 
 
-\subsection{Edge crossings}
 
 
-[But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
+% \subsection{Edge crossings}
 
-[who?] found that using the Gestalt principle of `closure' \ldots the viewer's mind instinctively joins up the lines
+
+% [But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
+
+% [who?] found that using the Gestalt principle of `closure' \ldots the viewer's mind instinctively joins up the lines
 
 
 
@@ -207,6 +243,8 @@ Undirected cycles can be eliminated by ignoring certain edges altogether, to pro
 
 
 \section{Implementation}
+
+
 
 The Artoo tool is written mainly in JavaScript, numerous different 
 
