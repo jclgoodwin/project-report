@@ -102,16 +102,17 @@ Clearly, none of these are relevant to laying out a graph to convey information.
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.'' [So] attempts have been made to validate these intuitions.
 
-First, particular aesthetics have been evaluated.
+First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- symmetry, number of edge crossings, and number of edge bends -- by Then \citet{Purchase1997which} d
+
+
+\citet{PURCHASE1998647} later evaluated whole algorithms
 
 \ldots
 
-\subsubsection{ray purchase}
 
 Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
-
-Alsoi 
+interesting conclusion
 
 
 
@@ -136,12 +137,22 @@ Plenty of material can be found in literature, for example in \cite{Habli:2006:P
 
 Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{``should I consistently call it a ''community standard [document]'' or something else?}
 to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
-Although the specification document does not fully justify its recommendations, they seem reasonable.
-
 The specification suggests that arguments should flow down the page, starting with an abstract parent goal at the top, progressing downwards as this is refined into more concrete child strategies, goals and solutions -- this allows the hierarchy of the graph to be understood without looking at the directions of the connecting arrows.
 Context, assumption and justification elements are placed to the sides, a positioning which reflects their semantic role.
 
-The layout guidance is not demonstrated with specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
+Although the specification document does not fully justify its recommendations, they seem reasonable, but there there are instances of authors contravening them.
+
+Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended; this is repeated in two other arguments in \cite[pp.~8--9]{royal} \todo{\url{http://www-course.cs.york.ac.uk/pcsw/LaTeX/lecture.pdf} says ``don't use this form as a noun'' but \url{http://www.ieee.org/documents/style_manual.pdf} (chapter V) seems to say it's OK}.
+A rough visual observation highlights that it takes slightly longer to identify the top-level claim node, but the layout is more area-efficient, and the enclosing rectangle \todo{``minimum bounding box''?} [has a more useful aspect ratio].
+The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides, but the children of strategy 1.1.1.4 do not.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
+    \caption{An argument from }
+    \label{fig:aldencentral}
+\end{figure}
+
+In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
 \begin{itemize*}
 \item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense.
@@ -163,18 +174,6 @@ This supports a conclusion that, although examples found in literature are not a
             showing more clearly that the six goal elements are at the same level in the hierarchy}
     \label{fig:alignedsiblings}
 \end{figure}
-
-Elsewhere, there are instances of authors ignoring parts of the GSN standard guidance.
-Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended; this is repeated in two other arguments in \cite[pp.~8--9]{royal} \todo{\url{http://www-course.cs.york.ac.uk/pcsw/LaTeX/lecture.pdf} says ``don't use this form as a noun'' but \url{http://www.ieee.org/documents/style_manual.pdf} (chapter V) seems to say it's OK}.
-A rough visual observation highlights that it takes slightly longer to identify the top-level claim node, but the layout is more area-efficient, and the enclosing rectangle \todo{``minimum bounding box''?} [has a more useful aspect ratio].
-The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides, but the children of strategy 1.1.1.4 do not.
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
-    \caption{An argument from }
-    \label{fig:aldencentral}
-\end{figure}
-
 
 
 
