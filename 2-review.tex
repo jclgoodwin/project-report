@@ -51,10 +51,10 @@ Some attempts have been made to enumerate the vital characteristics of a good gr
 \citet{Himsolt95comparingand} compared a total of 11 different graph layout algorithms, ranging from force directed to more specialised ones only suitable for particular categories of graph (such as planar and directed acyclic).
 As well as running time, and six quantitative layout-related criteria -- ranked in order of significance after observing the layouts produced -- there is included a ``personal rating'' (on a scale of 1--5), based on the judgements of colleagues upon viewing the layouts produced.
 However, details of the experimental method used, and detailed statistical results, are not provided.
-\todo{Some o -- force directed algorithms produce good layouts for general graphs, but have the worst running time; DAG is also good with a better running time -- }
+\todo{found that force directed algorithms produce good layouts for general graphs, but have the worst running time; DAG is also good with a better running time; others not relevant to this project}
 
 \citet{DiBattista1997303} compared four algorithms, providing more detailed results.
-Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'') they cite} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
+Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper they mention (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'')} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
 
 \begin{description}
     \item[Area]
@@ -87,8 +87,10 @@ Standard paper sizes have a different aspect ratio still.
 If aesthetic beauty is important, then perhaps the golden ratio \todo{reference} should be used instead.
 However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
 
+(Area is clearly; other heuristics 
 
-\subsection{Evaluating quality metrics/human testing}
+
+\subsection{Empirical evidence for the the }
 
 As graph theory, and in turn graph layout, has a broad range of applications, it follows that the reasons for giving significance to different aesthetic qualities can vary depending on the application.
 
@@ -97,26 +99,30 @@ When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
 he considered the minimum number of crossings in a graph representing
 brick kilns, storage sites and the paths between them \todo{cite. and this is probably redundant fluff}.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
-Clearly, none of these are relevant to laying out a graph to convey information.\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?} / these applications are very different to the layout of GSN arguments.
+Clearly, none of these are relevant to laying out a graph to convey information\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?}/these applications are very different to laying out GSN arguments.
 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.'' [So] attempts have been made to validate these intuitions.
 
 First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- symmetry, number of edge crossings, and number of edge bends -- by Then \citet{Purchase1997which} d
 
+The experimental method involved asking questions such as 
 
 \citet{PURCHASE1998647} later evaluated whole algorithms
 
 \ldots
 
-
 Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
-interesting conclusion
+One of
 
 
 
-\subsection{Gestalt principles}
+\subsection{Theories of perception}
+
+\citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using the.
+The relevance of UML diagram layout GSN argument layout is [moot]. Both UML activity diagrams and GSN arguments describe processess, although \citeauthor{kennysun}  In the absence any existing work on the 
+
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
@@ -124,10 +130,20 @@ are often applied to visual design and grap.
 
 The principle 
 
-The relationship between the Gestalt principles and \ldots can seem hazy and tenuous
+The relationship between the Gestalt principles and \ldots can seem [hazy and tenuous]
+
+\begin{description}
+    \item[Connectedness] Objects 
+
+    \item[Similarity] Objects that have the same shape or colour, for example, appear grouped together.
+    The GSN effectively exploits this law, as elements of each type have a common shape.
+    
+    \item[Proximity]
+    
+\end{description}
 
 
-
+\citeauthor{kennysun} provide an excellent summary of. 
 
 
 \subsection{The human gold-standard \todo{this is part of the method, arguably}}
@@ -135,7 +151,7 @@ The relationship between the Gestalt principles and \ldots can seem hazy and ten
 Building [sort of?] on the ideas in \cite{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild''\todo{although it is not always clear whether these have been layed out ``manually'' or automatically}.
 Plenty of material can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico} \ldots
 
-Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{``should I consistently call it a ''community standard [document]'' or something else?}
+Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{should I consistently call it a ''community standard [document]'' or something else?}
 to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
 The specification suggests that arguments should flow down the page, starting with an abstract parent goal at the top, progressing downwards as this is refined into more concrete child strategies, goals and solutions -- this allows the hierarchy of the graph to be understood without looking at the directions of the connecting arrows.
 Context, assumption and justification elements are placed to the sides, a positioning which reflects their semantic role.
@@ -189,9 +205,11 @@ This supports a conclusion that, although examples found in literature are not a
 
 \section{Approaches to graph layout}
 
+A range of . They vary in scope and efficiency, 
+
 \subsection{Force directed algorithms}
 
-Force directed graph layout algorithms are the descendants of \todo{as someone has observed?} \citet{tutte} \ldots a successor to \citet{tutte} spring embedding.
+\todo{as someone has observed?} Force directed graph layout algorithms can be considered to be descended from   \citet{tutte} \ldots a successor to \citet{tutte} spring embedding.
 
 Force directed layout is simple to understand, being based on physical laws we encounter in the world 
 
@@ -205,7 +223,15 @@ Force directed layout is simple to understand, being based on physical laws we e
 
 \subsection{Layered graph drawing}
 
-Layered or hierarchical graph drawing  \ldots sometimes generalised as Sugiyama's method, after \ldots who pioneered this technique \ldots 
+Layered or hierarchical graph drawing techniques are sometimes generalised as Sugiyama's method, after the work of \citet{4308636}, who presented a four-step framework for laying out directed graphs. Many of the steps directly address particular ``readability elements'', which are some of the aesthetics mentioned in section [EARLIER].
+
+\begin{enumerate}
+\item Order the nodes in a hierachy, based on the directions of the edges
+\item Order the edges in such a way that minimises edge crossings. [Purchase] has shown empirically that this improves comprehension.
+\item Decide [?] the horizontal positions of nodes
+\end{enumerate}
+
+Whereas force directed techniques typically produce layouts where 
 
 
 
@@ -243,9 +269,7 @@ Undirected cycles can be eliminated by ignoring certain edges altogether, to pro
 
 \section{Implementation}
 
-
-
-The Artoo tool is written mainly in JavaScript, numerous different 
+The Artoo tool is written mainly in JavaScript 
 
 Various [things] have been developed in response to perceived shortcomings in JavaScript \ldots
 
@@ -253,13 +277,14 @@ Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} la
 
 Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. \todo{performance overhead etc\ldots}
 
-Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}} and GHCJS\footnote{} are compilers from Haskell to JavaScript; SMLtoJS\footnote{\url{http://www.smlserver.org/smltojs/}} is a Standard ML--to-JavaScript compiler. These are perhaps most interesting [?], since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''.
-
-
+Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}}
+and GHCJS\footnote{} are compilers from Haskell to JavaScript;
+SMLtoJS\footnote{\url{http://www.smlserver.org/smltojs/}} is a Standard ML--to-JavaScript compiler.
+These are perhaps most interesting [?], since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''.
 
 ASM\footnote{} is a strict subset of 
 
-[However]
+Because the, and in order to take advantage
 
 
 \section{Software development methodologies}
@@ -268,6 +293,7 @@ In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a G
 (More recently, [sussman] gave a talk with the same title \ldots \todo{\url{http://vimeo.com/12060509}}.)
 
 This idea will be 
+
 
 \section{}
 
@@ -287,3 +313,8 @@ These implementations also provide lessons on the structure of \ldots
 
 
 agile
+
+
+
+
+

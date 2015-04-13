@@ -37,7 +37,7 @@ There is also evidence of the GSN being used for presenting other kinds of logic
 for example,
 arguing the security of a system \cite{plop},
 and validating computer simulations of biological models \cite{insilico,royal}.
-The broader field of argumentation theory encompasses fields such as law and philosophy, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}. \todo{and other similar notations are used in the same fields as GSN\ldots} 
+The broader field of argumentation theory encompasses fields such as law, philosophy and critical thinking, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}. \todo{and \emph{other} similar notations are used in the same fields as GSN\ldots} 
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
 The nodes are made up of \todo{a bit unclear, maybe ``each node is one of\ldots''?} the following types of element:
@@ -95,19 +95,38 @@ Examples include Dependable Computing's Argument Editor\footnote{\url{http://www
   \caption{The Artoo tool, displaying an argument}
 \end{figure}
 
-\section{Automatic layout of GSN arguments in the Artoo tool}
+\section{Motivation/Automatic layout of GSN arguments in the Artoo tool}
 
 Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
 (Edges are drawn automatically, based on connections defined \todo{?} by the user.)
 Clearly, this becomes difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' \todo{cite somehow?}.
 Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{I'm not sure this is fair, actually. A more pertinent point might be that it uses 2D space very efficiently, so must have been very difficult to lay out}. \label{sec:cramped}
 
-For these reasons, graph drawing tools often include automatic layout features. Examples include, Dependable Computing's Argument Editor \todo{see footnote 1?} \ldots
+For these reasons, graph drawing tools often include automatic layout features.
+In the area of argumentation, Dependable Computing's Argument Editor \todo{see footnote 1?} \ldots
 
-This project aims to add an automatic layout feature to Artoo.
+There 
+
+
+\section{Objectives and structure}
+
+This project aims to add an automatic layout feature to Artoo
 How this will be exposed to the user is still to be determined. 
 The process will involve researching and implementing various graph layout algorithms,
 and testing them [in a structured, repeatable way] in order to compare them. 
+
+\begin{itemize}
+\item The \textbf{introduction} introduces the problem, the report and its structure
+\item \textbf{Research} discusses approaches to the layout of graphs, and approaches to evaluating their layout.
+\item Decide on
+\item
+\item
+\end{itemize}
+
+\section{Statement of ethics}
+
+
+\chapter{}
 
 \subsection{Problem definition}
 
