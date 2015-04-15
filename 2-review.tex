@@ -54,7 +54,9 @@ However, details of the experimental method used, and detailed statistical resul
 \todo{found that force directed algorithms produce good layouts for general graphs, but have the worst running time; DAG is also good with a better running time; others not relevant to this project}
 
 \citet{DiBattista1997303} compared four algorithms, providing more detailed results.
-Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper they mention (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'')} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
+Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper they mention (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'')} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. This is a good example to follow \ldots
+
+They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
 
 \begin{description}
     \item[Area]
@@ -85,12 +87,12 @@ In general, the ideal aspect ratio will depend on various factors, such as where
 Since the paper was published, data such as those published by Unity Technologies\footnote{\url{http://stats.unity3d.com/}} have shown that 4:3 is no longer the most common computer screen aspect ratio.
 Standard paper sizes have a different aspect ratio still.
 If aesthetic beauty is important, then perhaps the golden ratio \todo{reference} should be used instead.
+
 However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
+The other metrics seem reasonable \ldots
 
-(Area is clearly; other heuristics 
 
-
-\subsection{Empirical evidence for the the }
+\subsection{Empirical evidence for the the validity of heuristics}
 
 As graph theory, and in turn graph layout, has a broad range of applications, it follows that the reasons for giving significance to different aesthetic qualities can vary depending on the application.
 
@@ -99,12 +101,18 @@ When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
 he considered the minimum number of crossings in a graph representing
 brick kilns, storage sites and the paths between them \todo{cite. and this is probably redundant fluff}.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
-Clearly, none of these are relevant to laying out a graph to convey information\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?}/these applications are very different to laying out GSN arguments.
+Clearly, none of these are relevant to laying out a graph to convey information\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?}/
+
+Clearly, these applications are very different to laying out GSN arguments, and it is only a coincidence that, for example, minimising edge crossings is considered important for both aesthetic appeal and solving practical problems.
+More importantly, whereas it can be proven that , reasoning about optimising layout from a human perception point of view is more complicated and subjevtive.
 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
-several decades have typically been designed in accordance with the intuitions of the algorithm designers.'' [So] attempts have been made to validate these intuitions.
+several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
+This highlights the need for these intuitions to be validated properly.
 
-First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- symmetry, number of edge crossings, and number of edge bends -- by Then \citet{Purchase1997which} d
+First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- symmetry, number of edge crossings, and number of edge bends -- by 
+
+Then \citet{Purchase1997which} d
 
 The experimental method involved asking questions such as 
 
@@ -164,7 +172,7 @@ The refinements of the strategies do mostly follow the standard guidance, contin
 
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
-    \caption{An argument from }
+    \caption{An argument from \cite{royal}, demonstrating a liberal interpretation of the GSN standard layout guidance}
     \label{fig:aldencentral}
 \end{figure}
 
@@ -187,25 +195,16 @@ This supports a conclusion that, although examples found in literature are not a
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/aligned_siblings.pdf}
     \caption{A modified version of figure~\ref{fig:unalignedsiblings},
-            showing more clearly that the six goal elements are at the same level in the hierarchy}
+            showing more clearly that the six goal elements are at the same level in the hierarchy
+            \todo{actually I'm not sure this is really an improvement at all}}
     \label{fig:alignedsiblings}
 \end{figure}
 
 
 
-% \subsection{Edge crossings}
-
-
-% [But] more relevantly [which studies?] have found that edge crossings is the most important factor for comprehension
-
-% [who?] found that using the Gestalt principle of `closure' \ldots the viewer's mind instinctively joins up the lines
-
-
-
-
 \section{Approaches to graph layout}
 
-A range of . They vary in scope and efficiency, 
+A range of approaches to. They vary in scope and efficiency, 
 
 \subsection{Force directed algorithms}
 

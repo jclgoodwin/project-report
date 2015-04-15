@@ -37,10 +37,15 @@ There is also evidence of the GSN being used for presenting other kinds of logic
 for example,
 arguing the security of a system \cite{plop},
 and validating computer simulations of biological models \cite{insilico,royal}.
-The broader field of argumentation theory encompasses fields such as law, philosophy and critical thinking, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}. \todo{and \emph{other} similar notations are used in the same fields as GSN\ldots} 
+The broader field of argumentation theory encompasses fields such as law, philosophy and critical thinking, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}.
+There are still further notations used in the same fields as GSN, such as CAE
+\footnote{\url{http://www.adelard.com/asce/choosing-asce/cae.html}}
+and the OMG SACM
+\footnote{\url{http://www.omg.org/spec/SACM/}}.
+\todo{using normal footnotes for supplementary things like this is OK, isn't it?}
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
-The nodes are made up of \todo{a bit unclear, maybe ``each node is one of\ldots''?} the following types of element:
+Each node is one of the following types of element:
 
 \begin{description}
 
@@ -78,22 +83,32 @@ Edges connect these elements together, forming an overall ``goal structure''.
 
 \section{Artoo}
 
-Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax. It was developed by Paul Andrews at the York Computational Immunology Lab, and [is therefore particularly well-suited to?] using the GSN to argue about biological simulations [for example, it allows arguments to be ``unfinished''?] as \citet{royal} do in a paper which introduces both Artoo and the use of the argumentation (specifically using the GSN) for this \ldots \todo{a bit clumsy?}
-
-Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers. Arguments are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics and layout), and can be exported as bitmap images.
-
-\ldots
-
-Artoo is available for free under a GNU GPLv3 licence.
-This means that anyone can use it and modify it, within the terms of the license.
-Other tools also exist for drawing GSN arguments, but they are typically commercial and closed-source, and emphasise the use of the GSN for presenting safety arguments.
-Examples include Dependable Computing's Argument Editor\footnote{\url{http://www.dependablecomputing.com/tools/index.html}} \ldots
-
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{graphics/artoo_screenshot.png}
   \caption{The Artoo tool, displaying an argument}
+  \label{fig:artoo}
 \end{figure}
+
+Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax.
+It was developed by Paul Andrews at the York Computational Immunology Lab, and \citet{royal} introduce it with specific reference to using the GSN for arguing about biological simulations (which they demonstrate).
+
+Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers.
+\todo{reads a bit like I copied it from somewhere?}
+Arguments are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics \todo{, content, ?} and layout), and can be exported as bitmap images.
+Figure~\ref{fig:artoo} shows \ldots
+
+\ldots
+
+Artoo is available for free under a GNU GPLv3 licence.
+This means that anyone can use it, view the source code, and modify it, within the terms of the license.
+
+Other tools also exist for drawing GSN arguments, but they are typically commercial and closed-source, \todo{and so\ldots ?} and specifically emphasise the use of argumentation for presenting safety arguments.
+Examples include Dependable Computing's Argument Editor
+\footnote{\url{http://www.dependablecomputing.com/tools/index.html} \label{fn:depcomp}}
+, and Adelard's ASCE 
+\footnote{\url{http://www.adelard.com/asce/choosing-asce/index.html}}.
+
 
 \section{Motivation/Automatic layout of GSN arguments in the Artoo tool}
 
@@ -103,7 +118,7 @@ Clearly, this becomes difficult to manage for larger arguments, and is made hard
 Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{I'm not sure this is fair, actually. A more pertinent point might be that it uses 2D space very efficiently, so must have been very difficult to lay out}. \label{sec:cramped}
 
 For these reasons, graph drawing tools often include automatic layout features.
-In the area of argumentation, Dependable Computing's Argument Editor \todo{see footnote 1?} \ldots
+In the area of argumentation, Dependable Computing's Argument Editor\ is one such tool.
 
 There 
 
