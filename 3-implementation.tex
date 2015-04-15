@@ -2,9 +2,25 @@
 
 This chapter describes \ldots compares \ldots
 
+
+
+
 \section{Artoo}
 
 Artoo consists of a general-purpose {\tt SVGGraph}  -- and a
+
+
+\section{Experimental methodology}
+
+
+\subsection{Test data}
+
+\begin{itemize}
+    \item Four graphs from \citet{aldenthesis}
+\end{itemize}
+
+Up to a point, GSN arguments are quite homogeneous. 
+
 
 \section{Springy}
 
@@ -64,13 +80,28 @@ The Barnes-Hut algorithm is $O$
 
 
 
-\section{Dagre\todo{I feel like this is more of the correct the}
+\section{Dagre}
 
 An key part of the layered layout approach is notion that directed graphs flow in a single direction (typically from top to bottom or from left to right). This is highly applicable to GSN arguments, particularly as specified by the GSN community standard document's guidelines \cite{gsnspec} (see __)
 
 Figure~ shows
 
-\
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{graphics/results/dagre.png}
+  \label{fig:dagre1}
+\end{figure}
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{graphics/results/dagre-enhanced.png}
+  \caption{A less naive use of Dagre, with InContextOf connections 
+  \label{fig:dagre2}
+\end{figure}
+
+
 
 \begin{landscape}
 
