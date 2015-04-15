@@ -82,13 +82,14 @@ The Barnes-Hut algorithm is $O$
 
 \section{Dagre}
 
-An key part of the layered layout approach is notion that directed graphs flow in a single direction (typically from top to bottom or from left to right). This is highly applicable to GSN arguments, particularly as specified by the GSN community standard document's guidelines \cite{gsnspec} (see
+An key part of the layered layout approach is notion that directed graphs flow in a single direction (typically from top to bottom or from left to right). This is highly applicable to GSN arguments, particularly as specified by the GSN community standard document's guidelines \cite{gsnspec} (see )
 
 Figure~\ref{fig:dagre1} shows
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{graphics/results/dagre.png}
+  \caption{A na\"ive use of Dagre to render a graph from \cite{aldenthesis}}
   \label{fig:dagre1}
 \end{figure}
 
@@ -97,7 +98,7 @@ Figure~\ref{fig:dagre1} shows
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{graphics/results/dagre-enhanced.png}
-  \caption{A less naive use of Dagre, with InContextOf connections 
+  \caption{A less na\"ive use of Dagre compared to figure~\ref{fig:dagre}, with context, assumption and justification elements placed to the sides through the use of unrendered dummy elements}
   \label{fig:dagre2}
 \end{figure}
 
