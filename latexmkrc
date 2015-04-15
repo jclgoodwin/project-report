@@ -3,7 +3,7 @@
 
 # $jobname = 'output/jclg500'; # http://tex.stackexchange.com/a/11726
 
-$pdflatex = 'pdflatex';
+$pdflatex = 'pdflatex --shell-escape';
 
 $pdf_previewer = "start evince";
 $pdf_update_method = 0;
