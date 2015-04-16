@@ -43,16 +43,31 @@ A range of different categories of graph layout algorithm have been developed ov
 
 \subsection{Force directed algorithms}
 
-Force-directed algorithms are relatively simple to understand, and target no particular type of graph. 
+Force directed algorithms are relatively simple to understand, and target no particular type of graph. 
 citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
 spawning many variations and being widely implemented.
 
-As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings,  using a method using Barycentric coordinates, was the first force directed algorithm.
+As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings,  using a method using Barycentric coordinates, is considered the first force directed algorithm.
 
-The ease of understanding is maximised when ideas from the physical world are used.  [Eades]
+The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout. \cite{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law but rather exerting a force proportion to the logarithm of their extension -- this produces a better layout \ldots
 
+[Fruchterman and Reingold]
 
-I moved this from the method section but I think it might belong there after all:-
+Springy
+
+A clear drawback of force directed methods is their computational complexity, which becomes a problem for large graphs.
+GSN arguments are typically relatively small -- for example, the largest in \_ is has \_ nodes -- but, nevertheless, [something].
+Various ways have been found to improve their efficiency.
+
+The Barnes-Hut algorithm is applicable to n-body simulations \citet{quigleyfade} 
+
+Fruchterman and Reingold 
+
+arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that uses the Barnes-Hut algorithm 
+
+[Eades]
+
+\citet{handbook:forcedir}
 
 \begin{description}
 
@@ -142,23 +157,7 @@ This is achieved by reversing certain edges.
 
 \subsection{Undirected cycles}
 
-Undirected cycles can be eliminated by ignoring certain edges altogether, to produce a tree.  [citation needed]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Undirected cycles can be eliminated by ignoring certain edges altogether.  [citation needed]
 
 
 
@@ -237,7 +236,7 @@ More importantly, whereas it can be proven that , reasoning about optimising lay
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
 This highlights the need for these intuitions to be validated properly.
 
-\subsubsection{}
+\subsubsection{\ldots}
 
 First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms. \todo{go in to more detail?}
 Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
@@ -253,6 +252,8 @@ However, as \citet{Purchase1997which} acknowledge, the studies only investigate 
 
 \ldots
 
+\citet{huang2007effects}
+
 \ldots
 
 Most recently, \citet{5674033} invited users to draw graphs :
@@ -263,13 +264,13 @@ One of
 
 \citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using common principles taken from various theories of perception.
 The relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is [moot].
-Both UML activity diagrams and GSN arguments describe processes, although \citeauthor{kennysun} focused on UML class diagams.
-In the absence any existing work specific to argumentation notations, [it will have to do], and it provides a [good?] summary of \ldots
+Arguably, UML activity diagrams and GSN arguments both describe processes, although \citeauthor{kennysun} focused on UML class diagrams.
+In the absence any existing work specific to argumentation notations, [it will have to suffice], and it provides a [good?] summary of \ldots
 
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
-are often applied to visual design and grap.
+are often [cite examples] \citep[136]{storrle} invoked in discussions 
 
 The principle 
 
