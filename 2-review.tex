@@ -4,9 +4,7 @@
 \section{History}
 
 In 1736, \citet{euler} solved the Seven Bridges of Ka\"{o}nigsberg problem by drawing a graph.
-\citet{ismail2009some}
-\todo{a strange paper to choose. perhaps multiple citations?}
-pinpoint his use of this method as the birth of graph theory.
+Some \cite{ismail2009some} \todo{(might cite a different paper if this isn't to be used for anything else)} pinpoint his use of this method as the birth of graph theory.
 
 Graph theory has many applications to modelling the real world \ldots
 
@@ -24,14 +22,143 @@ In the same year, \citet{Knuth63} described a system for drawing flowcharts that
 
 \citet{Knuth63} does not describe his flowcharts as graphs, but 
 
-The annual symposium is 
+\subsection{}
 
+The annual symposium i
 
 \ldots
 
 \citet{huang2007effects} divide graphs into two groups: abstract graphs and domain graphs.
 GSN arguments fall into the latter category \ldots  therefore \ldots
-\todo{I don't think this is widely agreed upon}
+
+
+
+
+
+\section{Approaches to graph layout}
+
+A range of different categories of graph layout algorithm have been developed over time, varying in scope and efficiency from those suitable for general graphs to more efficient algorithms focused on particular categories of graph (binary trees, for example).
+\citet{handbook} provides a recent broad and deep overview, and the most relevant \ldots are summarised here.
+
+
+\subsection{Force directed algorithms}
+
+Force-directed algorithms are relatively simple to understand, and target no particular type of graph. 
+citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
+spawning many variations and being widely implemented.
+
+As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings,  using a method using Barycentric coordinates, was the first force directed algorithm.
+
+The ease of understanding is maximised when ideas from the physical world are used.  [Eades]
+
+
+I moved this from the method section but I think it might belong there after all:-
+
+\begin{description}
+
+\item[Hooke's law] Hooke's law describes the relationship between the force exerted on a spring,
+    and the distance by which it extends as a result of that force being exerted.
+    It states that the distance is proportional to the force:
+
+    $$
+    F = -kX
+    $$
+
+    (where $F$ is the force exerted on the spring,
+    $X$ is the distance by which it extends,
+    and $k$ is a constant representing the spring's stiffness)
+
+\item[Coulomb's law] Coulomb's law describes the electrostatic force of interaction between two point charges.
+
+    ``is directly proportional to the scalar multiplication of the magnitudes of charges and inversely proportional to the square of the distance between them.''
+
+    ``The force is along the straight line joining them.
+    If the two charges have the same sign,
+    the electrostatic force between them is repulsive;
+    if they have different sign,
+    the force between them is attractive.'' \todo{reference}
+
+    In scalar form:
+
+    $$
+    |\mathbf F|=k_e{|q_1q_2|\over r^2}\qquad
+    $$
+
+    (where $F$ F is the $q_1$ and $q_2$ are the two charges, $r$ is the distance between them, and $k_e$ is Coulomb's constant 
+
+    In vector form:
+
+    $$
+    \qquad\mathbf F_1=k_e\frac{q_1q_2}{{|\mathbf r_{21}|}^2} \mathbf{\hat{r}}_{21},\qquad
+    $$
+
+    Coulomb's law closely resembles Newton's law of universal gravitation, which describes the gravitational force between two masses.
+    But gravitational force is always attractive (if it is assumed that nothing can have negative mass),
+    whereas the electrostatic force described by Coulomb's law can be repulsive (if both particles' charges have the same sign)
+
+\item[Newton's laws of motion] Finally
+
+\end{description}
+
+
+gansner 199*
+
+\subsection{grid}
+
+\subsection{Layered graph drawing}
+
+Layered or hierarchical graph drawing techniques are sometimes generalised as Sugiyama's method, after the work of \citet{4308636}, who presented a   for laying out directed graphs. Many of the steps directly address particular ``readability elements'', which are some of the aesthetics mentioned in section.
+
+\begin{enumerate}
+\item Order the nodes in a hierachy, based on the directions of the edges
+\item Order the edges in such a way that minimises edge crossings. [Purchase] has shown empirically that this improves comprehension.
+\item Decide [?] the horizontal positions of nodes
+\end{enumerate}
+
+Whereas force directed techniques typically produce layouts where 
+
+
+
+
+\section{[GSN-/Artoo-specific considerations?]}
+
+[move to Requirements?]
+
+The  \ldots
+
+
+
+\subsection{Dangling edges}
+
+suggests incomplete graph
+
+\subsection{Directed cycles}
+
+It can be useful to remove directed cycles from the internal representation of a graph
+(before drawing them back in their correct, original directions)
+-- for example, in order to assign a consistent rank to each node.
+This is achieved by reversing certain edges.
+\citet{gansner1993} show that a simple depth-first-search \ldots  Minimising the number of edges is more difficult, \citeauthor{gansner1993} \ldots
+
+\subsection{Undirected cycles}
+
+Undirected cycles can be eliminated by ignoring certain edges altogether, to produce a tree.  [citation needed]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -110,13 +237,19 @@ More importantly, whereas it can be proven that , reasoning about optimising lay
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
 This highlights the need for these intuitions to be validated properly.
 
-First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- symmetry, number of edge crossings, and number of edge bends -- by 
+First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends.
+Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
+who were asked questions requiring them to read the drawings.
+Drawings with edge crossings and bends were found to correlate with errors in a statistically significant way, but symmetry -- a complexly defined metric -- appeared to have no significant effect.
+
 
 Then \citet{Purchase1997which} d
 
 The experimental method involved asking questions such as 
 
 \citet{PURCHASE1998647} later evaluated whole algorithms
+
+The drawings used in all three . 
 
 \ldots
 
@@ -141,7 +274,7 @@ The principle
 The relationship between the Gestalt principles and \ldots can seem [hazy and tenuous]
 
 \begin{description}
-    \item[Connectedness] Objects 
+    \item[Connectedness] Objects (mention direction, and how force-directed layouts [typically] ignore the direction of in
 
     \item[Similarity] Objects that have the same shape or colour, for example, appear grouped together.
     The GSN effectively exploits this law, as elements of each type have a common shape.
@@ -179,8 +312,8 @@ The refinements of the strategies do mostly follow the standard guidance, contin
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
 \begin{itemize*}
-\item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense.
-\item Another example, shown in figure~\ref{fig:unalignedsiblings}, ignores \todo{I think ``violates'' would be wrong} Gestalt \ldots
+    \item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense.
+    \item Another example, shown in figure~\ref{fig:unalignedsiblings} \ldots \ldots
 \end{itemize*}
 
 This supports a conclusion that, although examples found in literature are not always are perfectly laid out, the imperfections are at least easy to identify.
@@ -191,73 +324,6 @@ This supports a conclusion that, although examples found in literature are not a
             from the GSN specification \citep[figure~42, section~2.3.6.5, pp.~34]{gsnstandard}}
     \label{fig:unalignedsiblings}
 \end{figure}
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{graphics/aligned_siblings.pdf}
-    \caption{A modified version of figure~\ref{fig:unalignedsiblings},
-            showing more clearly that the six goal elements are at the same level in the hierarchy
-            \todo{actually I'm not sure this is really an improvement at all}}
-    \label{fig:alignedsiblings}
-\end{figure}
-
-
-
-\section{Approaches to graph layout}
-
-A range of approaches to. They vary in scope and efficiency, 
-
-\subsection{Force directed algorithms}
-
-\todo{as someone has observed?} Force directed graph layout algorithms can be considered to be descended from   \citet{tutte} \ldots a successor to \citet{tutte} spring embedding.
-
-Force directed layout is simple to understand, being based on physical laws we encounter in the world 
-
-
-[gansner 199*]
-
-\subsection{grid}
-
-
-
-
-\subsection{Layered graph drawing}
-
-Layered or hierarchical graph drawing techniques are sometimes generalised as Sugiyama's method, after the work of \citet{4308636}, who presented a four-step framework for laying out directed graphs. Many of the steps directly address particular ``readability elements'', which are some of the aesthetics mentioned in section [EARLIER].
-
-\begin{enumerate}
-\item Order the nodes in a hierachy, based on the directions of the edges
-\item Order the edges in such a way that minimises edge crossings. [Purchase] has shown empirically that this improves comprehension.
-\item Decide [?] the horizontal positions of nodes
-\end{enumerate}
-
-Whereas force directed techniques typically produce layouts where 
-
-
-
-
-\section{[GSN-/Artoo-specific considerations?]}
-
-[move to Requirements?]
-
-The  \ldots
-
-
-
-\subsection{Dangling edges}
-
-suggests incomplete graph
-
-\subsection{Directed cycles}
-
-It can be useful to remove directed cycles from the internal representation of a graph
-(before drawing them back in their correct, original directions)
--- for example, in order to assign a consistent rank to each node.
-This is achieved by reversing certain edges.
-\citet{gansner1993} show that a simple depth-first-search \ldots  Minimising the number of edges is more difficult, \citeauthor{gansner1993} \ldots
-
-\subsection{Undirected cycles}
-
-Undirected cycles can be eliminated by ignoring certain edges altogether, to produce a tree.  [citation needed]
 
 
 
