@@ -231,25 +231,27 @@ Where a graph represents an electrical circuit, edge crossings affect how the ci
 Clearly, none of these are relevant to laying out a graph to convey information\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?}/
 
 Clearly, these applications are very different to laying out GSN arguments, and it is only a coincidence that, for example, minimising edge crossings is considered important for both aesthetic appeal and solving practical problems.
-More importantly, whereas it can be proven that , reasoning about optimising layout from a human perception point of view is more complicated and subjevtive.
+More importantly, whereas it can be proven that , reasoning about optimising layout from a human perception point of view is more complicated and subjective.
 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
 This highlights the need for these intuitions to be validated properly.
 
-First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends.
+\subsubsection{}
+
+First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms. \todo{go in to more detail?}
 Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
 who were asked questions requiring them to read the drawings.
 Drawings with edge crossings and bends were found to correlate with errors in a statistically significant way, but symmetry -- a complexly defined metric -- appeared to have no significant effect.
 
+Then \citet{Purchase1997which} reevaluated these aesthetics along with two more. ``The results show that there is strong
+evidence to support minimising crosses, and weaker evidence for minimising the number of bends and maximising perceptual symmetry.''
+Neither of the two additional criteria -- orthogonal structure, and the maximum angles between edges leaving nodes -- appeared to have much effect.
 
-Then \citet{Purchase1997which} d
+The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of [whole] algorithms.
+However, as \citet{Purchase1997which} acknowledge, the studies only investigate ``relational'' reading of drawings of abstract, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. \citet{storrle} has shown that, particularly for inexperienced users, various criteria associated with the ``good'' layout of UML diagrams do improve comprehension -- but not looked at the effects of specific aesthetics.
 
-The experimental method involved asking questions such as 
-
-\citet{PURCHASE1998647} later evaluated whole algorithms
-
-The drawings used in all three . 
+\ldots
 
 \ldots
 
@@ -257,12 +259,12 @@ Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
 One of
 
-
-
 \subsection{Theories of perception}
 
-\citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using the.
-The relevance of UML diagram layout GSN argument layout is [moot]. Both UML activity diagrams and GSN arguments describe processess, although \citeauthor{kennysun}  In the absence any existing work on the 
+\citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using common principles taken from various theories of perception.
+The relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is [moot].
+Both UML activity diagrams and GSN arguments describe processes, although \citeauthor{kennysun} focused on UML class diagams.
+In the absence any existing work specific to argumentation notations, [it will have to do], and it provides a [good?] summary of \ldots
 
 
 The Gestalt principles of visual perception,
@@ -283,8 +285,6 @@ The relationship between the Gestalt principles and \ldots can seem [hazy and te
     
 \end{description}
 
-
-\citeauthor{kennysun} provide an excellent summary of. 
 
 
 \subsection{The human gold-standard \todo{this is part of the method, arguably}}
