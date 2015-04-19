@@ -42,7 +42,6 @@ There are still further notations used in the same fields as GSN, such as CAE
 \footnote{\url{http://www.adelard.com/asce/choosing-asce/cae.html}}
 and the OMG SACM
 \footnote{\url{http://www.omg.org/spec/SACM/}}.
-\todo{using normal footnotes for supplementary things like this is OK, isn't it?}
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
 Each node is one of the following types of element:
@@ -102,7 +101,6 @@ Figure~\ref{fig:artoo} shows \ldots
 
 Artoo is available for free under a GNU GPLv3 licence.
 This means that anyone can use it, view the source code, and modify it, within the terms of the license.
-
 Other tools also exist for drawing GSN arguments, but they are typically commercial and closed-source, \todo{and so\ldots ?} and specifically emphasise the use of argumentation for presenting safety arguments.
 Examples include Dependable Computing's Argument Editor
 \footnote{\url{http://www.dependablecomputing.com/tools/index.html} \label{fn:depcomp}}
@@ -110,17 +108,15 @@ Examples include Dependable Computing's Argument Editor
 \footnote{\url{http://www.adelard.com/asce/choosing-asce/index.html}}.
 
 
-\section{Motivation/Automatic layout of GSN arguments in the Artoo tool}
+\section{Motivation}
 
 Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
 (Edges are drawn automatically, based on connections defined \todo{?} by the user.)
-Clearly, this becomes difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' \todo{cite somehow?}.
-Furthermore, users sometimes perform manual layout badly -- for example, the dense layout of the argument shown in figure~\ref{fig:crampedex1} makes its structure hard to discern [hides/masks its structure?] \ldots \todo{I'm not sure this is fair, actually. A more pertinent point might be that it uses 2D space very efficiently, so must have been very difficult to lay out}. \label{sec:cramped}
+Clearly, this becomes time-consuming and difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid''.
+Furthermore, users may sometimes perform manual layout badly, an idea explored in section~\_.
 
 For these reasons, graph drawing tools often include automatic layout features.
-In the area of argumentation, Dependable Computing's Argument Editor\footref{fn:depcomp} is one such tool.
-
-There 
+In the area of argumentation, Dependable Computing's Argument Editor\footref{fn:depcomp} is one such tool. Other tools with 
 
 
 \section{Objectives and structure}
@@ -143,9 +139,12 @@ and testing them [in a structured, repeatable way] in order to compare them.
 licenses
 
 
+
+
+
 \chapter{}
 
-\subsection{Problem definition}
+\section{Problem definition}
 
 Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges, [and outputs \ldots] [not a controversial statement but might cite].
 In the case of a GSN argument, there is additional information associated with the input graph:
@@ -164,7 +163,7 @@ A structured, repeatable way of assessing and comparing graph layout algorithms 
 
 \ldots
 
-\subsection{this probably belongs later:}
+\section{this probably belongs later:}
 
 Artoo also allows the drawing of invalid GSN arguments ...
 if the graph layout [thing] is to be executed every time the graph is edited, \todo{see one of the recommendations from \cite{5674033}} then it must accept these .

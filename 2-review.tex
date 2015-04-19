@@ -1,37 +1,24 @@
 \chapter{Research}
 
 
+
+
+\section{Definitions}
+
+\citet{huang2007effects} divide graphs into two groups: abstract graphs and domain graphs.
+Graphical argumentation notations such as GSN appear to fall into the latter category, as do others such as 
+
+Graphs are relational structures, consisting of \emph{nodes} or \emph{vertices} connected by \emph{edges} or \emph{arcs}. In the domain of the GSN, \emph{element} may also be used for node, and \emph{connection} or \emph{relationship} for edge.
+
 \section{History}
 
 In 1736, \citet{euler} solved the Seven Bridges of Ka\"{o}nigsberg problem by drawing a graph.
-Some \cite{ismail2009some} \todo{(might cite a different paper if this isn't to be used for anything else)} pinpoint his use of this method as the birth of graph theory.
+Some \cite{alexanderson2006cover} pinpoint his use of this method as the birth of graph theory as a branch of mathematics.
 
-Graph theory has many applications to modelling the real world \ldots
+In 1963, \citet{tutte} popularised the problem of graph drawing, showing how any triconnected
+graph could be drawn on the plane with straight lines and no edge crossings.
 
-\subsection{Tutte-embeddings}
-
-In 1963, \citet{tutte} popularised [says who] the problem of graph drawing when he presented 
-
-["who showed that polyhedral graphs may be drawn in the plane with all faces convex by fixing the vertices of the outer face of a planar embedding of the graph into convex position, placing a spring-like attractive force on each edge, and letting the system settle into an equilibrium"]
-
-This contained two important ideas: embeddings(, , and the application of an attractive spring-like attractive force \ldots 
-
-\subsection{Knuth}
-
-In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} \todo{find out page number!} says this is [the first example of an algorithm for visualising information] although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
-
-\citet{Knuth63} does not describe his flowcharts as graphs, but 
-
-\subsection{}
-
-The annual symposium i
-
-\ldots
-
-\citet{huang2007effects} divide graphs into two groups: abstract graphs and domain graphs.
-GSN arguments fall into the latter category \ldots  therefore \ldots
-
-
+In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} suggests this was ``perhaps the first paper to present an algorithm for drawing as graph for visualisation purpose'' although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
 
 
 
@@ -39,6 +26,7 @@ GSN arguments fall into the latter category \ldots  therefore \ldots
 
 A range of different categories of graph layout algorithm have been developed over time, varying in scope and efficiency from those suitable for general graphs to more efficient algorithms focused on particular categories of graph (binary trees, for example).
 \citet{handbook} provides a recent broad and deep overview, and the most relevant \ldots are summarised here.
+
 
 
 \subsection{Force directed algorithms}
@@ -68,6 +56,7 @@ arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that
 [Eades]
 
 \citet{handbook:forcedir}
+
 
 \begin{description}
 
@@ -118,7 +107,13 @@ arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that
 
 gansner 199*
 
+
+
+
 \subsection{grid}
+
+
+
 
 \subsection{Layered graph drawing}
 
@@ -134,7 +129,6 @@ Whereas force directed techniques typically produce layouts where
 
 
 
-
 \section{[GSN-/Artoo-specific considerations?]}
 
 [move to Requirements?]
@@ -147,6 +141,8 @@ The  \ldots
 
 suggests incomplete graph
 
+
+
 \subsection{Directed cycles}
 
 It can be useful to remove directed cycles from the internal representation of a graph
@@ -155,10 +151,11 @@ It can be useful to remove directed cycles from the internal representation of a
 This is achieved by reversing certain edges.
 \citet{gansner1993} show that a simple depth-first-search \ldots  Minimising the number of edges is more difficult, \citeauthor{gansner1993} \ldots
 
+
+
 \subsection{Undirected cycles}
 
 Undirected cycles can be eliminated by ignoring certain edges altogether.  [citation needed]
-
 
 
 
@@ -316,7 +313,7 @@ The refinements of the strategies do mostly follow the standard guidance, contin
     \label{fig:aldencentral}
 \end{figure}
 
-Other literature. This suggests that 
+Other literatature  . As the authors of \cite{royal}'s authors include the original developer of Artoo, 
 
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
@@ -361,34 +358,9 @@ ASM\footnote{} is a strict subset of
 Because the, and in order to take advantage
 
 
+
+
+
 \section{Software development methodologies}
-
-In \citeyear{67poorslop}, \citet*{67poorslop} explained ``Why Programming is a Good Medium for Expressing Poorly Understood and Sloppily Formulated Ideas''
-(More recently, [sussman] gave a talk with the same title \ldots \todo{\url{http://vimeo.com/12060509}}.)
-
-This idea will be 
-
-
-\section{}
-
-Reuse of existing software libraries is widely [?] understood to be [a very sensible idea]. There are , which \ldots for comparison with 
-
-\begin{description}
-  \item[Springy] is 
-  \item[Arbor] is an implementation of the Barnes-Hut algorithm described in  
-  \item[The JavaScript InfoVis Toolkit] contains algorithms ported from \ldots
-  \item[vis.js]
-\end{description}
-
-The Graphviz library contains several algorithms, including \ldots [as described in \ldots]. Although it is written in C, Emscripten \footnote{\url{http://emscripten.org}} can compile LLVM bitcode (readily compiled from C code) [as described earlier?] to the ASM subset of JavaScript -
-
-These implementations also provide lessons on the structure of \ldots
-
-
-
-agile
-
-
-
 
 
