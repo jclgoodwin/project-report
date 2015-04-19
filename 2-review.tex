@@ -248,9 +248,7 @@ evidence to support minimising crosses, and weaker evidence for minimising the n
 Neither of the two additional criteria -- orthogonal structure, and the maximum angles between edges leaving nodes -- appeared to have much effect.
 
 The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of [whole] algorithms.
-However, as \citet{Purchase1997which} acknowledge, the studies only investigate ``relational'' reading of drawings of abstract, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. \citet{storrle} has shown that, particularly for inexperienced users, various criteria associated with the ``good'' layout of UML diagrams do improve comprehension -- but not looked at the effects of specific aesthetics.
-
-\ldots
+However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria associated with the ``good'' layout of UML diagrams do improve comprehension. However, he has not looked at the effects of specific aesthetics.
 
 \citet{huang2007effects}
 
@@ -290,8 +288,9 @@ The relationship between the Gestalt principles and \ldots can seem [hazy and te
 
 \subsection{The human gold-standard \todo{this is part of the method, arguably}}
 
-Building [sort of?] on the ideas in \cite{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild''\todo{although it is not always clear whether these have been layed out ``manually'' or automatically}.
-Plenty of material can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico} \ldots
+Similarly to the method of \citet{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild''.
+Although it is not always clear whether these have been laid out ``manually'' or automatically, 
+Plenty of arguments can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico}.
 
 Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{should I consistently call it a ''community standard [document]'' or something else?}
 to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
@@ -300,15 +299,24 @@ Context, assumption and justification elements are placed to the sides, a positi
 
 Although the specification document does not fully justify its recommendations, they seem reasonable, but there there are instances of authors contravening them.
 
-Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended; this is repeated in two other arguments in \cite[pp.~8--9]{royal} \todo{\url{http://www-course.cs.york.ac.uk/pcsw/LaTeX/lecture.pdf} says ``don't use this form as a noun'' but \url{http://www.ieee.org/documents/style_manual.pdf} (chapter V) seems to say it's OK}.
-A rough visual observation highlights that it takes slightly longer to identify the top-level claim node, but the layout is more area-efficient, and the enclosing rectangle \todo{``minimum bounding box''?} [has a more useful aspect ratio].
-The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides, but the children of strategy 1.1.1.4 do not.
+Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended. Two other arguments in the paper \cite[pp.~8--9]{royal} have a similar layout.
+A rough visual observation highlights that -- compared to a theoretical layout following the official guidance to the letter -- it takes slightly longer to identify the top-level claim node, but offers these advantages:
+
+\begin{itemize*}
+\item Smaller area
+\item Better aspect ratio
+\item 
+\end{itemize*}confidence,”
+
+The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides. However, the positions of the children of strategy 1.1.1.4 (in the bottom right corner) are clearly incorrect, in a way that appears to have no advantages.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
     \caption{An argument from \cite{royal}, demonstrating a liberal interpretation of the GSN standard layout guidance}
     \label{fig:aldencentral}
 \end{figure}
+
+Other literature. This suggests that 
 
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
@@ -337,7 +345,7 @@ This supports a conclusion that, although examples found in literature are not a
 
 The Artoo tool is written mainly in JavaScript 
 
-Various [things] have been developed in response to perceived shortcomings in JavaScript \ldots
+Various tools have been developed in response to perceived shortcomings in JavaScript, which should be considered before., 
 
 Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript \ldots this is interesting but \ldots
 
