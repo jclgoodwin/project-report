@@ -6,42 +6,48 @@
 \section{Definitions}
 
 \citet{huang2007effects} divide graphs into two groups: abstract graphs and domain graphs.
-Graphical argumentation notations such as GSN appear to fall into the latter category, as do others such as 
+Graphical argumentation notations such as GSN appear to fall into the latter category, as do others such as n
 
-Graphs are relational structures, consisting of \emph{nodes} or \emph{vertices} connected by \emph{edges} or \emph{arcs}. In the domain of the GSN, \emph{element} may also be used for node, and \emph{connection} or \emph{relationship} for edge.
+Graphs are relational structures, consisting of \emph{nodes} or \emph{vertices} connected by \emph{edges} or \emph{arcs}. In the domain of the GSN, \emph{element} may also be used for node, and \emph{connection} or \emph{relationship} for edge, although in general graph theory a graph's elements are both its nodes and edges.
+
+A \emph{connected graph} is on . A $n$-connected graph is one which remains connected when any $n-1$ nodes are removed. 
 
 \section{History}
 
 In 1736, \citet{euler} solved the Seven Bridges of Ka\"{o}nigsberg problem by drawing a graph.
 Some \cite{alexanderson2006cover} pinpoint his use of this method as the birth of graph theory as a branch of mathematics.
 
-In 1963, \citet{tutte} popularised the problem of graph drawing, showing how any triconnected
+In 1963, \citet{tutte} popularised the problem of graph drawing, showing how any 3-connected
 graph could be drawn on the plane with straight lines and no edge crossings.
 
-In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} suggests this was ``perhaps the first paper to present an algorithm for drawing as graph for visualisation purpose'' although \citeauthor{Knuth63} cites earlier work done on a similar system by \citet{haibt1959}.
+In the same year, \citet{Knuth63} described a system for drawing flowcharts that describe algorithms. \citet{battista} suggests this was ``perhaps the first paper to present an algorithm for drawing a graph for visualisation purposes'', although \citeauthor{Knuth63} cites earlier work on a similar system by \citet{haibt1959}.
 
 
 
 \section{Approaches to graph layout}
 
-A range of different categories of graph layout algorithm have been developed over time, varying in scope and efficiency from those suitable for general graphs to more efficient algorithms focused on particular categories of graph (binary trees, for example).
-\citet{handbook} provides a recent broad and deep overview, and the most relevant \ldots are summarised here.
+A range of different categories of graph layout algorithm have been developed over time,
+varying in scope and efficiency from those suitable for general graphs to more efficient algorithms focused on particular categories of graph (binary trees, for example).
+\citet{handbook} provides a recent broad and deep overview.
+The categories of algorithm considered most relevant to the automatic layout of GSN arguments are summarised here.
 
 
 
 \subsection{Force directed algorithms}
 
-Force directed algorithms are relatively simple to understand, and target no particular type of graph. 
-citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
+Force directed algorithms are relatively simple to understand, and target no particular type of graph.
+\citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
 spawning many variations and being widely implemented.
 
-As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings,  using a method using Barycentric coordinates, is considered the first force directed algorithm.
+As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings, using a method using Barycentric coordinates, is considered the origin of force directed algorithms.
 
-The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout. \cite{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law but rather exerting a force proportion to the logarithm of their extension -- this produces a better layout \ldots
+The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout. \citeauthor{}{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law (an approximation of the actual physical responses of springs and elastic bodies) but rather exerting a force proportionate to the logarithm of their extension -- so that .
 
-[Fruchterman and Reingold]
+\citet{SPE:SPE4380211102} introduce the idea of forces between the nodes themselves -- inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws, 
 
 Springy
+
+\subsubsection{Efficiency}
 
 A clear drawback of force directed methods is their computational complexity, which becomes a problem for large graphs.
 GSN arguments are typically relatively small -- for example, the largest in \_ is has \_ nodes -- but, nevertheless, [something].
@@ -57,6 +63,9 @@ arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that
 
 \citet{handbook:forcedir}
 
+\subsubsection{Non-point nodes}
+
+A deficiency of the methods discussed thus far is that they are concerned purely with abstract graphs, and [as a symptom of this] assume that all graphs 
 
 \begin{description}
 
@@ -117,13 +126,15 @@ gansner 199*
 
 \subsection{Layered graph drawing}
 
-Layered or hierarchical graph drawing techniques are sometimes generalised as Sugiyama's method, after the work of \citet{4308636}, who presented a   for laying out directed graphs. Many of the steps directly address particular ``readability elements'', which are some of the aesthetics mentioned in section.
+Layered or hierarchical graph drawing techniques are sometimes generalised as \emph{Sugiyama's method}, after the work of \citet{4308636}, who presented a method for laying out directed graphs. Many of the steps directly address particular ``readability elements'', which are some of the aesthetics mentioned in section.
 
 \begin{enumerate}
 \item Order the nodes in a hierachy, based on the directions of the edges
 \item Order the edges in such a way that minimises edge crossings. [Purchase] has shown empirically that this improves comprehension.
 \item Decide [?] the horizontal positions of nodes
 \end{enumerate}
+
+The steps form a 
 
 Whereas force directed techniques typically produce layouts where 
 
@@ -283,10 +294,10 @@ The relationship between the Gestalt principles and \ldots can seem [hazy and te
 
 
 
-\subsection{The human gold-standard \todo{this is part of the method, arguably}}
+\subsection{The human gold-standard}
 
-Similarly to the method of \citet{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild''.
-Although it is not always clear whether these have been laid out ``manually'' or automatically, 
+Similarly to the method of \citet{5674033}, One understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild'' -- like the method, , understanding 
+Although it is not always clear whether these have been laid out ``manually'' or automatically, it is reasonable to assume that , 
 Plenty of arguments can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico}.
 
 Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{should I consistently call it a ''community standard [document]'' or something else?}

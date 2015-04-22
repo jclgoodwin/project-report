@@ -9,10 +9,23 @@ Informed by the findings of research discussed in chapter~\_, some requirements 
 
 
 
+
+
 \section{Artoo}
 
-Artoo consists of a general-purpose {\tt SVGGraph}  -- and a
+Artoo can be considered to consist of several separate parts:
 
+\begin{description}
+
+\item[{\tt SVGGraph}] A representation of a domain graph -- not necessarily a GSN argument.
+This consists of SVG shapes, most of which are graph nodes containing textual labels in the form of SVG {\ttForeignObject}s; and SVG paths representing the graph's directed edges.
+The shapes can be moved around the canvas by clicking and dragging, and the edges appear as automatically drawn quadratic B\'{e}zier curves. 
+
+Although this abstraction is described as ''general SVG graph tool code'', many of its features included appear to anticipate GSN-specific use, such as the ability to attach diamonds to shapes (representing undeveloped parts of the argument), the notion of connections being either horizontal (anticipating the GSN's InContextOf relationship) or vertical, and the particular SVG shapes on offer (rectangle, rhomboid, , etc. -- all happen to correspond with types of GSN element).
+
+\item[{\tt GSNGraph}] A wrapper around {\tt SVGGraph}, containing additional methods and [packaging/cloaking/abstracting] it with GSN-specific terminology. 
+
+\end{description}
 
 \section{Experimental methodology}
 
