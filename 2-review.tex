@@ -43,9 +43,15 @@ As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a t
 
 The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout. \citeauthor{}{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law (an approximation of the actual physical responses of springs and elastic bodies) but rather exerting a force proportionate to the logarithm of their extension -- so that .
 
-\citet{SPE:SPE4380211102} introduce the idea of forces between the nodes themselves -- inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws, 
+\citet{SPE:SPE4380211102} introduce the idea of forces between the nodes themselves -- inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws while still being inspired by them. 
 
-Springy
+Different combinations of weak and strong, repulisve and attractive
+
+Springy\footnote{\url{https://github.com/dhotson/springy} \label{fn:springy}}
+
+\subsubsection{Manipulation}
+
+The ``move all nodes to random positions'' step can be accompanied by a
 
 \subsubsection{Efficiency}
 
@@ -65,8 +71,7 @@ arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that
 
 \subsubsection{Non-point nodes}
 
-A deficiency of the methods discussed thus far is that they are concerned purely with abstract graphs, and [as a symptom of this] assume that all graphs 
-
+A deficiency of the methods discussed thus far is that they are concerned purely with abstract graphs, and [as a symptom of this] assume that all nodes are single points. As [[gasner]] points out, 
 
 
 gansner 199*
@@ -87,19 +92,22 @@ Layered or hierarchical graph drawing techniques are sometimes generalised as \e
 \item Order the nodes in a hierachy, based on the directions of the edges
 \item Order the edges in such a way that minimises edge crossings. [Purchase] has shown empirically that this improves comprehension.
 \item Decide [?] the horizontal positions of nodes
+\item
 \end{enumerate}
 
-The steps form a 
+The steps form a rough framework to be filled in -- in this way, the method has formed a starting point for enhancements and variations just like the force directed idea, despite being less fundamentally simple.
 
 Whereas force directed techniques typically produce layouts where 
+
+
+Although 
 
 
 
 \section{[GSN-/Artoo-specific considerations?]}
 
-[move to Requirements?]
 
-The  \ldots
+\section{}
 
 
 

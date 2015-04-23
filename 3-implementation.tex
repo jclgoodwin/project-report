@@ -5,14 +5,14 @@ This chapter describes \ldots compares \ldots
 
 \section{Software development methodology}
 
-Some features of of agile software development processes, such as pair programming in Extreme Programming \cite{xpparr} and meetings in Scrum [], are only relevant to the developing software in teams, and are therefore not relevant to this solo effort. \ldot
+Some features of of agile software development processes, such as pair programming in Extreme Programming \cite{xpparr} and meetings in Scrum [], are only relevant to the developing software in teams, and are therefore not relevant to this solo effort. \ldots
 
 However, other principles are applicable, such as valuing ``Working software over comprehensive documentation'' [[agile manifesto]]. Artoo is 
 
 Gerald Jay Sussman gave a talk entitled ``Why programming is a good medium for expressing poorly understood and sloppily formulated ideas'' \ldots
 
 
-Another concern is the role of the product owner, typically a customer or boss \ldots 
+Another consideration is the role of the product owner, typically a customer or boss \ldots 
 
 
 
@@ -30,23 +30,41 @@ The shapes can be moved around the canvas by clicking and dragging, and the edge
 
 Although this abstraction is described as ''general SVG graph tool code'', the scope of the features included in it appears to anticipate GSN-specific use. Clear examples of this are the ability to attach diamonds to shapes (which can representing undeveloped parts of the argument), the notion of connections being either horizontal (anticipating the GSN's InContextOf relationship) or vertical, and the particular SVG shapes on offer (rectangle, rounded rectangle, rhomboid, ellipse, etc. -- all happen to correspond with types of GSN element).
 
-\item[{\tt GSNGraph}] A wrapper around {\tt SVGGraph}, containing additional methods and data structures [to cloak it with GSN-specific terminology]: for example, {\tt markNodeUndeveloped(id)}} makes use of {\tt SVGGraph}'s {\tt addDiamondToShape(id)} method, but also updates the `undeveloped' property of the {\tt GSNGraph}'s own representation of the node.
+\item[{\tt GSNGraph}] A wrapper around {\tt SVGGraph}, containing additional methods and data structures [to cloak it with GSN-specific terminology]: for example, {\tt markNodeUndeveloped(id)} makes use of {\tt SVGGraph}'s {\tt addDiamondToShape(id)} method, but also updates the `undeveloped' property of the {\tt GSNGraph}'s own representation of the node.
 
 \end{description}
   
-Also defined elsewhere is other functionality, such as the ability to export PNG images of arguments, and the user interface with menus and dialog boxes to facilitate creating GSN arguments and generally using the tool.
+Alongside this is other functionality, such as the ability to export PNG images of arguments, and the user interface with menus and dialog boxes to facilitate creating GSN arguments and generally using the tool.
 
 
 \section{Requirements and scope}
 
 Informed by the findings of research discussed in chapter~\_, and the context of the existing Artoo software, some requirements can be specified.
 
-The presence of layers of abstraction -- GSN graphs layered upon more general graphs -- might be feasibly followed through in implementation of automatic layout: first implementing a more general layout algorithm, and then  extending it to address the specific requirements of the GSN domain. However, what the practical difference would be is moot. The most prominent extra requirement of GSN argument layout is the placement of contextual elements horizontally beside their parents, but this notion of connections being either horizontal or vertical is already built into the general {\tt SVGGraph} model. The direction of relationships is also part of {\tt SVGGraph} -- supporting undirected graphs would entail an additional property to indicate that an edge's direction should be ignored. In fact, this supports the case that the layout feature should take the `{\tt SVGGraph}, and that the more ``general'' graph layout feature will 
+The presence of layers of abstraction -- GSN graphs layered upon more general graphs -- might be feasibly followed through in implementation of automatic layout: first implementing a more general layout algorithm, and then  extending it to address the specific requirements of the GSN domain. However, what the practical difference would be is moot. The most prominent extra requirement of GSN argument layout is the placement of contextual elements horizontally beside their parents, but this notion of connections being either horizontal or vertical is already built into the general {\tt SVGGraph} model. The direction of relationships is also part of {\tt SVGGraph} -- supporting undirected graphs would entail an additional property to indicate that an edge's direction should be ignored. In fact, this suggests that {\tt SVGGraph} should but the more ``general'' graph layout feature will happen to 
 
 One insight from [[Purchase]] was that authors do not distinguish between the activities of layout and [editing/creating], and the conclusion that tools should [combine them]. 
 
+
+Artoo also allows the drawing of invalid GSN arguments ...
+if the graph layout [thing] is to be executed every time the graph is edited, \todo{see one of the recommendations from \cite{5674033}} then it must accept these .
+If the algorithm [is exposed to the user by a] button, then there is the possibility of checking a structure's validity; however, partr
+
+
+
 \subsection{Good layout}
 
+
+\subsection{Speed}
+
+
+[[who theorieses/shows]] that a user perceives an interactive system to be working if it responds \ldots and broken if it takes \_ or longer.
+
+
+\subsection{Technical}
+
+Already, Artoo only works a limited set of web browsers: recent versions of \ldots
+The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using methods already in the code -- it is very unlikely that there will be any problems \ldots
 
 
 
@@ -115,10 +133,15 @@ It lays out graphs by representing nodes as point charges and edges as springs. 
 
 \end{description}
 
+The work of [[Eades and others]] suggests that
 
 \subsection{Implementing }
 
-Springy, as distributed [online], consists of a layout algorithm implemented in JavaScript (springy.js) along with a sample renderer for displaying a graph layout.
+Springy, as distributed online\footref{fn:springy}, consists of a layout algorithm implemented in JavaScript (springy.js) along with a sample rendereer for displaying a graph layout 
+
+[[screenshot]]
+
+
 
 \section{Arbor}
 
@@ -128,9 +151,13 @@ The Barnes-Hut algorithm is $O$
 
 
 
-\section{Dagre}
+\section{Layered}
 
-An key part of the layered layout approach is notion that directed graphs flow in a single direction (typically from top to bottom or from left to right). This is highly applicable to GSN arguments, particularly as specified by the GSN community standard document's guidelines \cite{gsnspec} (see )
+A key part of the layered layout approach is notion that directed graphs flow in a single direction (typically from top to bottom or from left to right). This is highly applicable to GSN arguments, particularly as specified by the GSN community standard document's guidelines \cite{gsnstandard}. The layout's 
+
+
+
+
 
 Figure~\ref{fig:dagre1} shows
 

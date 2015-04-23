@@ -111,43 +111,25 @@ Examples include Dependable Computing's Argument Editor
 \section{Motivation}
 
 Currently, users of Artoo have full control over the layout of arguments they draw, and have to position each node on the infinite canvas using a pointing device.
-(Edges are drawn automatically, based on connections defined \todo{?} by the user.)
-Clearly, this becomes time-consuming and difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid''.
+(Edges are drawn automatically, based on connections defined by the user.)
+Clearly, this becomes time-consuming and difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid'' [\ldots].
 Furthermore, users may sometimes perform manual layout badly, an idea explored in section~\_.
 
 For these reasons, graph drawing tools often include automatic layout features.
-In the area of argumentation, Dependable Computing's Argument Editor\footref{fn:depcomp} is one such tool. Other tools with 
+In the area of argumentation, Dependable Computing's Argument Editor\footref{fn:depcomp} is one such tool. 
+Other more general tools with automatic graph layout capabilities include [yWorks\ldots]
 
 
-\section{Objectives and structure}
+\section{Objectives and problem definition}
 
-This project aims to add an automatic layout feature to Artoo
-How this will be exposed to the user is still to be determined. 
+This project aims to add an automatic layout feature to Artoo.
+Determining how this feature should work -- both at a high and low level -- will be important.
+
 The process will involve researching and implementing various graph layout algorithms,
 and testing them [in a structured, repeatable way] in order to compare them. 
 
-\begin{itemize}
-\item The \textbf{introduction} introduces the problem, the report and its structure
-\item \textbf{Research} discusses approaches to the layout of graphs, and approaches to evaluating their layout.
-\item Decide on
-\item
-\item
-\end{itemize}
-
-\section{Statement of ethics}
-
-licenses
-
-
-
-
-
-\chapter{}
-
-\section{Problem definition}
-
 Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges, [and outputs \ldots] [not a controversial statement but might cite].
-In the case of a GSN argument, there is additional information associated with the input graph:
+In the case of a GSN argument, there is  information associated with the input graph:
 
 \begin{itemize}
   \item
@@ -159,25 +141,26 @@ In the case of a GSN argument, there is additional information associated with t
     \end{itemize}
 \end{itemize}
 
-A structured, repeatable way of assessing and comparing graph layout algorithms will be produced. 
+
+A structured, repeatable way of assessing and comparing graph layout algorithms will be produced\ldots
 
 \ldots
 
-\section{this probably belongs later:}
 
-Artoo also allows the drawing of invalid GSN arguments ...
-if the graph layout [thing] is to be executed every time the graph is edited, \todo{see one of the recommendations from \cite{5674033}} then it must accept these .
-If the algorithm [is exposed to the user by a] button, then there is the possibility of checking a structure's validity; however, partr
+\section{structure}
 
-Already, Artoo only works a limited set of web browsers: recent versions of \ldots
-The features added in this project will not interact with the browser in any new way -- only needing to change the position of nodes, using methods already in the code -- it is very unlikely that there will be any problems \ldots
+\begin{itemize}
+\item The \textbf{introduction} introduces the problem, the report and its structure
+\item \textbf{Research} discusses approaches to the layout of graphs, and approaches to evaluating their layout.
+\item Decide on
+\item
+\item
+\end{itemize}
 
-\subsection{method}
 
+\section{Statement of ethics}
 
-  \begin{enumerate}
-    \item
-      \begin{itemize}
-      \item ,
-    \end{itemize}
-  \end{enumerate}
+There are few ethical considerations in this project. 
+Where third party open source software has been used, this has been made clear, and the license has been followed.
+
+[Although it is possible that argumentation and Artoo could be used to support unethical activities, this \todo{that?} is not affected by this project\ldots]
