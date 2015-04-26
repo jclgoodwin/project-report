@@ -1,16 +1,17 @@
 \chapter{Research}
 
-
+The problem of graph layout is just one branch of research in graph theory.
+This chapter introduces the area, discusses different layout techniques, explores ways of evaluating the quality of graph layouts, and finally looks ahead to the implementation of some graph algorithms.
 
 
 \section{Definitions}
 
 \citet{huang2007effects} divide graphs into two groups: abstract graphs and domain graphs.
-Graphical argumentation notations such as GSN appear to fall into the latter category, as do others such as n
+Graphical argumentation notations such as GSN appear to fall into the latter category, as do others such as those used fro modelling 
 
 Graphs are relational structures, consisting of \emph{nodes} or \emph{vertices} connected by \emph{edges} or \emph{arcs}. In the domain of the GSN, \emph{element} may also be used for node, and \emph{connection} or \emph{relationship} for edge, although in general graph theory a graph's elements are both its nodes and edges.
 
-A \emph{connected graph} is on . A $n$-connected graph is one which remains connected when any $n-1$ nodes are removed. 
+A \emph{connected graph} is one where an unbroken path of edges exists between every pair of nodes. An $n$-connected graph is one which remains connected when any $n-1$ nodes are removed. 
 
 \section{History}
 
@@ -39,11 +40,28 @@ Force directed algorithms are relatively simple to understand, and target no par
 \citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
 spawning many variations and being widely implemented.
 
-As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a triconnected graph with straight lines and no crossings, using a method using Barycentric coordinates, is considered the origin of force directed algorithms.
+As \citet{handbook:forcedir} observes, \citet{tutte}'s algorithm for drawing a 3-connected graph with straight lines and no crossings, using a method using Barycentric coordinates, is considered the origin of force directed algorithms.
 
-The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout. \citeauthor{}{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law (an approximation of the actual physical responses of springs and elastic bodies) but rather exerting a force proportionate to the logarithm of their extension -- so that .
+The ease of understanding associated with force directed methods is most true when ideas from the physical world are used. \citet{eades84} pretends a graph's nodes are steel rings, and its edges are springs connecting the rings; the nodes are moved to random positions, and the subsequent reaction of the mechanical system is simulated to produce a graph layout.
 
-\citet{SPE:SPE4380211102} introduce the idea of forces between the nodes themselves -- inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws while still being inspired by them. 
+\citeauthor{eades84}'s springs are in fact \emph{spring-like} objects, responding not according to Hooke's law (an approximation of the actual physical responses of springs and elastic bodies) but rather exerting a force proportionate to the logarithm of their extension -- so that the force between far-apart nodes is less great.
+
+Hooke's law states that the extension of a spring is proportional to the force exerted on it:
+
+$$
+F = -kX
+$$
+
+(where $F$ is the force exerted on the spring,
+$X$ is the distance by which it extends,
+and $k$ is a constant representing the spring's stiffness)
+
+\citeauthor{eades84} instead uses the following formula, 
+$$
+c_1 \times \log(d \divide c_2),
+$$
+
+\citet{SPE:SPE4380211102} extend the idea of forces between the nodes themselves, inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws while still being inspired by them. 
 
 Different combinations of weak and strong, repulisve and attractive
 
@@ -138,7 +156,7 @@ Undirected cycles can be eliminated by ignoring certain edges altogether.  [cita
 The GSN was intended to be a clearer way of presenting arguments than free text.
 The process of breaking down arguments into their constituent parts achieves some of this clarity,
 but the notation's graphical nature also appears to be important.
-This raises the question of whether the particular layout of graphs can affect their comprehensibility.
+This raises the question of whether the particular layout of graphs -- in general, and specifically GSN arguments -- can affect their comprehensibility.
 
 Some attempts have been made to enumerate the vital characteristics of a good graph layout, often in order to understand the trade-offs between different algorithms running times and the quality of the layouts produced.
 
@@ -194,17 +212,16 @@ The other metrics seem reasonable \ldots
 As graph theory, and in turn graph layout, has a broad range of applications, it follows that the reasons for giving significance to different aesthetic qualities can vary depending on the application.
 
 For example, there can be many practical motivations for minimising edge crossings.
-When P\`{a}l Tur\`{a}n worked in a brick factory during World War II,
+When \citet{JGT:JGT3190010105} worked in a brick factory during World War II,
 he considered the minimum number of crossings in a graph representing
-brick kilns, storage sites and the paths between them \todo{cite. and this is probably redundant fluff}.
+brick kilns, storage sites and the paths between them.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
-Clearly, none of these are relevant to laying out a graph to convey information\todo{not quite right; graphs always \emph{convey information} but\ldots variations in the nature of the information being conveyed?}/
-
-Clearly, these applications are very different to laying out GSN arguments, and it is only a coincidence that, for example, minimising edge crossings is considered important for both aesthetic appeal and solving practical problems.
-More importantly, whereas it can be proven that , reasoning about optimising layout from a human perception point of view is more complicated and subjective.
+Clearly, these applications are very different to laying out GSN arguments, and it is only a coincidence (albeit a useful one) that, for example, minimising edge crossings is considered important for both aesthetic appeal and solving practical problems.
+More importantly, whereas it is objectively provable that ai, reasoning about optimising layout from a human perception point of view is more complicated and subjective.
 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
+This is an accurate observation -- for example, \citet{eades84} intuited that 
 This highlights the need for these intuitions to be validated properly.
 
 \subsubsection{\ldots}

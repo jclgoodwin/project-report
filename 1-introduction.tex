@@ -38,10 +38,9 @@ for example,
 arguing the security of a system \cite{plop},
 and validating computer simulations of biological models \cite{insilico,royal}.
 The broader field of argumentation theory encompasses fields such as law, philosophy and critical thinking, where similar notations, such as argument maps, are used \citep[pp.~3--6]{open1}.
-There are still further notations used in the same fields as GSN, such as CAE
-\footnote{\url{http://www.adelard.com/asce/choosing-asce/cae.html}}
-and the OMG SACM
-\footnote{\url{http://www.omg.org/spec/SACM/}}.
+There are still further notations used in the same fields as GSN, such as
+CAE\footnote{\url{http://www.adelard.com/asce/choosing-asce/cae.html}}
+and the OMG SACM\footnote{\url{http://www.omg.org/spec/SACM/}}.
 
 GSN arguments are directed, multivariate, hierarchical, two dimensional graphs.
 Each node is one of the following types of element:
@@ -89,23 +88,20 @@ Edges connect these elements together, forming an overall ``goal structure''.
   \label{fig:artoo}
 \end{figure}
 
-Artoo (Argumentation Tool) is a tool for drawing graph[ical?] structures, specifically using the GSN syntax.
+Artoo (Argumentation Tool) is a tool for drawing graphical structures, specifically using the GSN syntax.
 It was developed by Paul Andrews at the York Computational Immunology Lab, and \citet{royal} introduce it with specific reference to using the GSN for arguing about biological simulations (which they demonstrate).
 
 Artoo is a single-page, client-side web application, written in JavaScript, and runs in recent versions of most popular web browsers.
-\todo{reads a bit like I copied it from somewhere?}
-Arguments are displayed as [embedded in the web page] Scalable Vector Graphics (SVG) documents, can be stored as XML documents (containing all information about arguments' structure, semantics \todo{, content, ?} and layout), and can be exported as bitmap images.
-Figure~\ref{fig:artoo} shows \ldots
-
-\ldots
+Arguments are displayed as Scalable Vector Graphics (SVG) documents embedded in the web page, can be downloaded as XML documents (containing all information about arguments' structure, semantics, content, and layout) which can be re-opened later, and can be exported as bitmap images.
+Figure~\ref{fig:artoo} shows the tool displaying a GSN argument.\ldots
 
 Artoo is available for free under a GNU GPLv3 licence.
 This means that anyone can use it, view the source code, and modify it, within the terms of the license.
 Other tools also exist for drawing GSN arguments, but they are typically commercial and closed-source, \todo{and so\ldots ?} and specifically emphasise the use of argumentation for presenting safety arguments.
-Examples include Dependable Computing's Argument Editor
-\footnote{\url{http://www.dependablecomputing.com/tools/index.html} \label{fn:depcomp}}
-, and Adelard's ASCE 
-\footnote{\url{http://www.adelard.com/asce/choosing-asce/index.html}}.
+Examples include Dependable Computing's
+Argument Editor\footnote{\url{http://www.dependablecomputing.com/tools/index.html} \label{fn:depcomp}}
+, and Adelard's
+ASCE \footnote{\url{http://www.adelard.com/asce/choosing-asce/index.html}}.
 
 
 \section{Motivation}
@@ -126,9 +122,9 @@ This project aims to add an automatic layout feature to Artoo.
 Determining how this feature should work -- both at a high and low level -- will be important.
 
 The process will involve researching and implementing various graph layout algorithms,
-and testing them [in a structured, repeatable way] in order to compare them. 
+and testing them in a structured, repeatable way in order to compare them. 
 
-Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges, [and outputs \ldots] [not a controversial statement but might cite].
+Typically, a graph layout algorithm takes as its inputs a set of nodes and a set of edges, and outputs the positions 
 In the case of a GSN argument, there is  information associated with the input graph:
 
 \begin{itemize}
@@ -137,20 +133,17 @@ In the case of a GSN argument, there is  information associated with the input g
   \item
     There are various types of node and edge, and the type of a node should influence where it is placed. Specifically: goals, strategies and solutions should be treated differently to context, assumption and justification elements.
     \begin{itemize}
-    \item The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, strategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments) \todo{slightly too much detail here, move to later section?}.
+    \item The GSN specification's layout guidance \citep[section~2.2, pp.~26--27]{gsnstandard} recommends that parent and child goals, strategies and solutions are placed above and below each other; context, assumption and justification elements should be placed to the left and right of their parents (helping to alleviate the problem of cross-references disrupting the flow of arguments).
     \end{itemize}
 \end{itemize}
 
-
-A structured, repeatable way of assessing and comparing graph layout algorithms will be produced\ldots
-
-\ldots
+The paths of edges may also be outputted by non--straight line drawing algorithms. As Artoo already automatically draws edges depending on the positions of nodes, only the nodes' positions will be considered in this project.
 
 
-\section{structure}
+\section{Structure}
 
 \begin{itemize}
-\item The \textbf{introduction} introduces the problem, the report and its structure
+\item The \textbf{introduction} introduces the problem, the report and its structure.
 \item \textbf{Research} discusses approaches to the layout of graphs, and approaches to evaluating their layout.
 \item Decide on
 \item
@@ -160,7 +153,15 @@ A structured, repeatable way of assessing and comparing graph layout algorithms 
 
 \section{Statement of ethics}
 
-There are few ethical considerations in this project. 
-Where third party open source software has been used, this has been made clear, and the license has been followed.
+There are few ethical considerations in this project.
 
-[Although it is possible that argumentation and Artoo could be used to support unethical activities, this \todo{that?} is not affected by this project\ldots]
+Where third party open source software has been used, this has been made clear, and the license has been followed, with the relevant copyright and permission notices left intact in comments in the source code.
+
+\begin{itemize}
+\item Artoo: copyright \copy 2013 University of York, distributed under the terms of the GNU General Public License\footnote{\url{http://www.gnu.org/licenses/}} version 3
+\item Springy: MIT License\footnote{\url{http://opensource.org/licenses/MIT}}
+\item Arbor: MIT License
+\item Dagre: MIT License
+\end{itemize}
+
+Although it is possible that argumentation and Artoo could be used to support unethical activities, this is beyond the scope of this project.
