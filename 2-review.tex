@@ -65,12 +65,12 @@ $$
 
 The steps of the algorithm are summarised as follows:
 
-\begin{itemize*}
+\begin{enumerate*}
 \item Move nodes to random positions
 \item Calculate the force on each node
 \item Move the vertex $c_4 \times (force on vertex)$
 \item Repeat steps 2--3, perhaps 100 times
-\end{itemize}
+\end{enumerate*}
 
 
 
@@ -217,7 +217,7 @@ Standard paper sizes have a different aspect ratio still.
 If aesthetic beauty is important, then perhaps the golden ratio \todo{reference} should be used instead.
 
 However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
-The other metrics seem reasonable \ldots
+The other metrics seem reasonable.
 
 
 \subsection{Empirical evidence for the the validity of heuristics}
@@ -235,7 +235,7 @@ More importantly, whereas it is objectively provable that meeting some criteria 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
 \citet{eades84}, for example, intuited that ``edge lengths ought to be about the same and the layout should display as much symmetry as possible''.
-\citeauthor{5674033}'s observation hightlights the need for these intuitions to be validated properly.
+\citeauthor{5674033}'s observation highlights the need for these intuitions to be validated properly.
 
 First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms. \todo{go in to more detail?}
 Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
@@ -246,47 +246,55 @@ Then \citet{Purchase1997which} reevaluated these aesthetics along with two more.
 evidence to support minimising crosses, and weaker evidence for minimising the number of bends and maximising perceptual symmetry.''
 Neither of the two additional criteria -- orthogonal structure, and the maximum angles between edges leaving nodes -- appeared to have much effect.
 
-The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of [whole] algorithms.
-However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria commonly recommended for the ``good'' layout of UML diagrams (diagrams in the Unified Modelling Language, used to model the structure of software systems) do improve comprehension. However, he has not looked at the effects of specific aesthetics.
+The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of algorithms, showing the trade-offs between different combinations of layout characteristics.
+However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments.
 
-\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
+One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria commonly recommended for the ``good'' layout of UML diagrams (diagrams in the Unified Modelling Language, used to model the structure of software systems) do improve comprehension. However, he has not looked at the effects of specific aesthetics.
 
-As with sociograms, the relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is moot.
-In a paper which also summarises other work, some of which has also been discussed here, \citet{Purchase:2002:EEA:594512.594527} describe an study of participants' preferences about UML diagram layout.
-They investigate both class diagrams and collaboration diagrams. As the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments, which show the steps of a process -- although the hierarchical, inheritance-showing nature of class diagrams arguably has much in common with GSN arguments. The method -- asking users about their preferences -- is different to that of other studies, and may be less reliable -- just as users claim that using keyboard shortcuts feels quicker, but are actually faster at using a mouse \citep[pp.~26]{tognazzini1992tog}, they may claim to prefer graph layouts which in fact are more error-prone -- but the reduced focus on specific tasks, along with the use of different types of UML diagram, perhaps makes its findings more relevant. 
+In another paper, \citet{Purchase:2002:EEA:594512.594527} describe three different studies. Two of these measure users' performance with abstract graphs, much like previous studies \cite{Purchase1997basis, Purchase1997which, PURCHASE1998647}, but the third investigates an study of participants' preferences about UML diagram layout.
+
+Both class diagrams and collaboration diagrams appear in the UML study; as the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments in terms of showing the steps of a process -- although the hierarchical, inheritance-showing nature of the class diagrams may in fact have more in common with GSN arguments. The method -- asking users about their preferences -- is different to that of other studies, and may be less reliable -- just as users claim that using keyboard shortcuts feels quicker, but are actually faster at using a mouse \citep[pp.~26]{tognazzini1992tog}, they may claim to prefer graph layouts which in fact are more error-prone -- but the reduced focus on specific tasks, along with the use of different types of UML diagram, perhaps makes its findings more broadly applicable to different contexts such as GSN argument layout. In the study, the importance of minimising edge crossings is once again confirmed, and the importance of orthogonality (aligning nodes and edges to a grid), and showing a clear direction of information flow (perhaps by having all directed edges point in the same direction), are identified. Another discovery is users' preference for combined adjacent inheritance edges, as shown in figure~\ref{fig:connectededges} -- this is not conventional in GSN diagrams, as discussed in section~\ref{section:humangold}, but could be adopted. Some of the conclusions are not clear: the study identifies possible confounding factors, such as that users' apparent preference for orthogonal layout -- contradicting the performance-based study described earlier in the paper, which found orthogonality to have no significant effect -- may in fact really be a manifestation of preferring straighter edges, as the orthogonal drawings had fewer bends.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/connected-inheritance-edges.png}
+  \caption{Connected inheritance edges in a UML diagram \cite{kennysun}}
+  \label{fig:connectededges}
+\end{figure}
+
+
+\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. (As with UML diagrams, the relevance of sociogram layout to GSN argument layout may be questionable.) For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
 
 
 Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
 One of
 
-\subsection{Theories of perception}
-
-\citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using common principles taken from various theories of perception.
-In the absence any existing work specific to argumentation notations, it provides a good summary of the theories and attempts to apply them to the layout of graph structures \ldots
-
+\subsection{Theories of perception \label{section:gestalt}}
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
-are often [cite examples] \citep[136]{storrle} invoked in discussions 
+are often \citep[pp.~136]{storrle} invoked in discussions of graph layout.
+\citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using common principles taken from various theories of perception.
+In the absence any existing work specific to argumentation notations, it provides a good summary of the theories and attempts to apply them to the layout of graph structures.
 
-The principle 
-
-The relationship between the Gestalt principles and \ldots can seem [hazy and tenuous]
+Some of the principles summarised by \citet{kennysun} can be applied to GSN argument layout, as follows:
 
 \begin{description}
-    \item[Connectedness] Objects (mention direction, and how force-directed layouts [typically] ignore the direction of in
+    \item[Connectedness] Objects that are physically connected are perceived to be connected. This is extremely obvious, and is shown in almost every conventional representation of graphs and GSN arguments, but does importantly provide a formal motivation for the idea that nodes should be spaced sufficiently far apart that non-connected nodes do not overlap (see the problem of non-point nodes in force-directed graph layout). 
 
     \item[Similarity] Objects that have the same shape or colour, for example, appear grouped together.
-    The GSN effectively exploits this law, as elements of each type have a common shape.
+    The GSN effectively exploits this law, as elements of each type have a common shape. As with the principle of connectedness, layout can support this by positioning nodes sufficiently far apart, so that nodes' shapes are clearly visible.
     
-    \item[Proximity]
+    \item[Proximity] ``Elements that are close to each other are grouped together.'' This is supported by \citet{huang2007effects}'s evidence-based recommendation that 
+    
+    \item[Familiarity] ``Elements are more likely to be grouped together if the groups seem familiar or meaningful.'' This principle could be 
     
 \end{description}
 
 
 
-\subsection{The human gold-standard}
+\subsection{The human gold-standard \label{section:humangold}}
 
 Similarly to the method of \citet{5674033}, One understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild'' -- like the method, , understanding 
 Although it is not always clear whether these have been laid out ``manually'' or automatically, it is reasonable to assume that , 
@@ -306,7 +314,7 @@ A rough visual observation highlights that -- compared to a theoretical layout f
 \item Smaller area
 \item Better aspect ratio
 \item 
-\end{itemize*}confidence,”
+\end{itemize*}
 
 The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides. However, the positions of the children of strategy 1.1.1.4 (in the bottom right corner) are clearly incorrect, in a way that appears to have no advantages.
 
@@ -316,12 +324,12 @@ The refinements of the strategies do mostly follow the standard guidance, contin
     \label{fig:aldencentral}
 \end{figure}
 
-Other literatature  . As the authors of \cite{royal}'s authors include the original developer of Artoo, 
+Other literature  . As the authors of \cite{royal}'s authors include the original developer of Artoo, 
 
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
 \begin{itemize*}
-    \item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense.
+    \item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense; semantically related nodes are not positioned closer together, indicating that the author has not considered the principle of proximity to aid readers' understanding (see section~\ref{sec:gestalt}).
     \item Another example, shown in figure~\ref{fig:unalignedsiblings} \ldots \ldots
 \end{itemize*}
 
