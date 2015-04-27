@@ -253,11 +253,11 @@ One attempt to fill this gap has been \citet{storrle} showing that, particularly
 
 In another paper, \citet{Purchase:2002:EEA:594512.594527} describe three different studies. Two of these measure users' performance with abstract graphs, much like previous studies \cite{Purchase1997basis, Purchase1997which, PURCHASE1998647}, but the third investigates an study of participants' preferences about UML diagram layout.
 
-Both class diagrams and collaboration diagrams appear in the UML study; as the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments in terms of showing the steps of a process -- although the hierarchical, inheritance-showing nature of the class diagrams may in fact have more in common with GSN arguments. The method -- asking users about their preferences -- is different to that of other studies, and may be less reliable -- just as users claim that using keyboard shortcuts feels quicker, but are actually faster at using a mouse \citep[pp.~26]{tognazzini1992tog}, they may claim to prefer graph layouts which in fact are more error-prone -- but the reduced focus on specific tasks, along with the use of different types of UML diagram, perhaps makes its findings more broadly applicable to different contexts such as GSN argument layout. In the study, the importance of minimising edge crossings is once again confirmed, and the importance of orthogonality (aligning nodes and edges to a grid), and showing a clear direction of information flow (perhaps by having all directed edges point in the same direction), are identified. Another discovery is users' preference for combined adjacent inheritance edges, as shown in figure~\ref{fig:connectededges} -- this is not conventional in GSN diagrams, as discussed in section~\ref{section:humangold}, but could be adopted. Some of the conclusions are not clear: the study identifies possible confounding factors, such as that users' apparent preference for orthogonal layout -- contradicting the performance-based study described earlier in the paper, which found orthogonality to have no significant effect -- may in fact really be a manifestation of preferring straighter edges, as the orthogonal drawings had fewer bends.
+Both class diagrams and collaboration diagrams appear in the UML study; as the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments in terms of showing the steps of a process -- although the hierarchical, inheritance-showing nature of the class diagrams may in fact have more in common with GSN arguments. The method -- asking users about their preferences -- is different to that of other studies, and may be less reliable -- just as users claim that using keyboard shortcuts feels quicker, but are actually faster at using a mouse \citep[pp.~26]{tognazzini1992tog}, they may claim to prefer graph layouts which in fact are more error-prone -- but the reduced focus on specific tasks, along with the use of different types of UML diagram, perhaps makes its findings more broadly applicable to different contexts such as GSN argument layout. In the study, the importance of minimising edge crossings is once again confirmed, and the importance of orthogonality (aligning nodes and edges to a grid), and showing a clear direction of information flow (perhaps by having all directed edges point in the same direction), are identified. Another discovery is users' preference for combined adjacent inheritance edges, as shown in figure~\ref{fig:connectededges} -- this is not conventional in GSN diagrams, as discussed in section~\ref{sec:humangold}, but could be adopted. Some of the conclusions are not clear: the study identifies possible confounding factors, such as that users' apparent preference for orthogonal layout -- contradicting the performance-based study described earlier in the paper, which found orthogonality to have no significant effect -- may in fact really be a manifestation of preferring straighter edges, as the orthogonal drawings inherently had fewer bends.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{graphics/connected-inheritance-edges.png}
+  \includegraphics[width=0.3\textwidth]{graphics/connected-inheritance-edges.png}
   \caption{Connected inheritance edges in a UML diagram \cite{kennysun}}
   \label{fig:connectededges}
 \end{figure}
@@ -265,12 +265,19 @@ Both class diagrams and collaboration diagrams appear in the UML study; as the l
 
 \citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. (As with UML diagrams, the relevance of sociogram layout to GSN argument layout may be questionable.) For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
 
-
 Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
 One of
 
-\subsection{Theories of perception \label{section:gestalt}}
+A good concluding summary is \citet{CRPITV106P80-88} overview of the outcomes of research up to 2010: ``Findings include
+the overwhelming evidence for the reduction of edge
+crossings \ldots some evidence for the reduction of
+bends and depiction of symmetry \ldots
+placement of important nodes at the top of the graph
+\ldots and large angles between incident
+edges \ldots.''
+
+\subsection{Theories of perception \label{sec:gestalt}}
 
 The Gestalt principles of visual perception,
 based on the wider Gestalt theory of the mind developed by German psychologists of the Berlin School in the late 19th and early 20th centuries,
@@ -294,7 +301,7 @@ Some of the principles summarised by \citet{kennysun} can be applied to GSN argu
 
 
 
-\subsection{The human gold-standard \label{section:humangold}}
+\subsection{The human gold-standard \label{sec:humangold}}
 
 Similarly to the method of \citet{5674033}, One understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild'' -- like the method, , understanding 
 Although it is not always clear whether these have been laid out ``manually'' or automatically, it is reasonable to assume that , 
@@ -329,11 +336,11 @@ Other literature  . As the authors of \cite{royal}'s authors include the origina
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
 \begin{itemize*}
-    \item As noted in section~\ref{sec:cramped}, the layout shown in figure~\ref{fig:crampedex1} is very dense; semantically related nodes are not positioned closer together, indicating that the author has not considered the principle of proximity to aid readers' understanding (see section~\ref{sec:gestalt}).
+    \item The layout reproduced in figure~\ref{fig:crampedex1} is very dense; semantically related nodes are not positioned closer together, indicating that the author has not considered the principle of proximity to aid readers' understanding (see section~\ref{sec:gestalt}).
     \item Another example, shown in figure~\ref{fig:unalignedsiblings} \ldots \ldots
 \end{itemize*}
 
-This supports a conclusion that, although examples found in literature are not always are perfectly laid out, the imperfections are at least easy to identify.
+This supports a conclusion that, although examples found in literature are not always are perfectly laid out -- which  the imperfections are at least easy to identify.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/unaligned_siblings.pdf}
@@ -344,29 +351,26 @@ This supports a conclusion that, although examples found in literature are not a
 
 
 
-
-
-
-
-
 \section{Implementation}
 
-The Artoo tool is written mainly in JavaScript 
+The Artoo tool is written mainly in JavaScript, along with some CSS which describes the presentation of the interface, and an HTML web page which loads the various other files and on which the the user interface appears. It seems inevitable that adding an automatic layout feature should involve writing JavaScript, but some consideration should be given to various software tools which have been developed in response to perceived shortcomings in the JavaScript language:
 
-Various tools have been developed in response to perceived shortcomings in JavaScript, which should be considered before., 
+\begin{itemize}
 
-Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript \ldots this is interesting but \ldots
+\item Brython\footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. The performance overhead of such an interpreter is likely to be high.
 
-Brython \footnote{\url{http://www.brython.info/}} is a Python 3 interpreter written in JavaScript that can run in a web browser. \todo{performance overhead etc\ldots}
+\item Programs written in the CoffeeScript\footnote{\url{http://coffeescript.org/}} language, designed to be more succinct and with some extra features, can be transcompiled to JavaScript.
 
-Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}}
-and GHCJS\footnote{} are compilers from Haskell to JavaScript;
+\item Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}}
+and GHCJS\footnote{} are compilers from Haskell to JavaScript, and
 SMLtoJS\footnote{\url{http://www.smlserver.org/smltojs/}} is a Standard ML--to-JavaScript compiler.
-These are perhaps most interesting [?], since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''.
+These tools, which each allow the use of functional languages to write code that runs in any modern web browser, are perhaps most interesting, since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''; Haskell, being a \emph{pure} functional language, may take this even further.
 
-ASM\footnote{} is a strict subset of 
+\end{itemize}
 
-Because the, and in order to take advantage
+None of these appear to offer compelling enough advantages to justify the added complexity (such as extra code to convert between different languages' data structures, and extra compilation steps in the development process) and the inconsistency with the existing Artoo codebase, that adopting them would entail. 
 
+The existence of good, permissively licensed existing implementations of graph layout implementations could motivate the choice of another language and associated tool-chain. Such implementations include the Open Graph Drawing
+Framework\footnote{\url{http://www.ogdf.net/}} \cite{handbook}, written in C++, and the Graphviz package which includes C implementations of some of the most well-developed algorithms discussed earlier \cite{gansner1993, gansner1998}. Enscripten \footnote{\url{http://emscripten.org}} can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well -- although only SpiderMonkey, in h, currently does this optimisation, it would be interesting to test the 
 
-
+For the sake of consistency with the existing code, and to take advantage of existing implementations such as Dagre and Springy, the plain JavaScript approach should be maintained at the start of the development process. 
