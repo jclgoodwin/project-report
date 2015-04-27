@@ -217,14 +217,12 @@ he considered the minimum number of crossings in a graph representing
 brick kilns, storage sites and the paths between them.
 Where a graph represents an electrical circuit, edge crossings affect how the circuit can be printed on a circuit board.
 Clearly, these applications are very different to laying out GSN arguments, and it is only a coincidence (albeit a useful one) that, for example, minimising edge crossings is considered important for both aesthetic appeal and solving practical problems.
-More importantly, whereas it is objectively provable that ai, reasoning about optimising layout from a human perception point of view is more complicated and subjective.
+More importantly, whereas it is objectively provable that meeting some criteria solves a problem in practical contexts, reasoning about optimising layout from a human perception point of view is more complicated and potentially subjective.
 
 \citet{5674033} observe that ``Many graph layout algorithms that have been devised over
 several decades have typically been designed in accordance with the intuitions of the algorithm designers.''
-This is an accurate observation -- for example, \citet{eades84} intuited that 
-This highlights the need for these intuitions to be validated properly.
-
-\subsubsection{\ldots}
+\citet{eades84}, for example, intuited that ``edge lengths ought to be about the same and the layout should display as much symmetry as possible''.
+\citeauthor{5674033}'s observation hightlights the need for these intuitions to be validated properly.
 
 First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms. \todo{go in to more detail?}
 Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
@@ -236,11 +234,12 @@ evidence to support minimising crosses, and weaker evidence for minimising the n
 Neither of the two additional criteria -- orthogonal structure, and the maximum angles between edges leaving nodes -- appeared to have much effect.
 
 The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of [whole] algorithms.
-However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria associated with the ``good'' layout of UML diagrams do improve comprehension. However, he has not looked at the effects of specific aesthetics.
+However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria commonly recommended for the ``good'' layout of UML diagrams (diagrams in the Unified Modelling Language, used to model the structure of software systems) do improve comprehension. However, he has not looked at the effects of specific aesthetics.
 
-\citet{huang2007effects}
+\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks). These tasks are different to the kinds of tasks GSN arguments are likely to be used for. 
 
-\ldots
+As with sociograms, the relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is moot. In a paper which also summarises other work, some of which has also been discussed here, \citet{Purchase:2002:EEA:594512.594527} describe an study of participants' preferences about UML diagram layout. They investigate both class diagrams and collaboration diagrams. As the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments, which show the steps of a process -- although the hierarchical, inheritance-showing nature of class diagrams arguably has much in common with GSN arguments.
+
 
 Most recently, \citet{5674033} invited users to draw graphs :
 compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
@@ -249,9 +248,7 @@ One of
 \subsection{Theories of perception}
 
 \citet{kennysun} evaluated the layouts of UML class diagrams produced by two commercial modelling tools, using common principles taken from various theories of perception.
-The relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is [moot].
-Arguably, UML activity diagrams and GSN arguments both describe processes, although \citeauthor{kennysun} focused on UML class diagrams.
-In the absence any existing work specific to argumentation notations, [it will have to suffice], and it provides a [good?] summary of \ldots
+In the absence any existing work specific to argumentation notations, it provides a good summary of the theories and attempts to apply them to the layout of graph structures \ldots
 
 
 The Gestalt principles of visual perception,
