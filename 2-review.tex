@@ -1,7 +1,7 @@
 \chapter{Research}
 
 The problem of graph layout is just one branch of research in graph theory.
-This chapter introduces the area, discusses different layout techniques, explores ways of evaluating the quality of graph layouts, and finally looks ahead to the implementation of some graph algorithms.
+This chapter introduces the area, discusses different layout techniques, explores ways of evaluating the quality of graph layouts, and finally looks ahead to the task of extending the Artoo tool.
 
 
 \section{Definitions}
@@ -56,20 +56,33 @@ $$
 $X$ is the distance by which it extends,
 and $k$ is a constant representing the spring's stiffness)
 
-\citeauthor{eades84} instead uses the following formula, 
+\citeauthor{eades84} uses the following formula in its place:
 $$
-c_1 \times \log(d \divide c_2),
+F = c_1 \times \log(d \div c_2),
 $$
+
+(where $c_1$ and $c_2$ are constants
+
+The steps of the algorithm are summarised as follows:
+
+\begin{itemize*}
+\item Move nodes to random positions
+\item Calculate the force on each node
+\item Move the vertex $c_4 \times (force on vertex)$
+\item Repeat steps 2--3, perhaps 100 times
+\end{itemize}
+
+
 
 \citet{SPE:SPE4380211102} extend the idea of forces between the nodes themselves, inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws while still being inspired by them. 
 
-Different combinations of weak and strong, repulisve and attractive
+In general, many different combinations of weak and strong, repulsive and attractive forces can be used to achieve different results.
 
-Springy\footnote{\url{https://github.com/dhotson/springy} \label{fn:springy}}
+Springy\footnote{\url{https://github.com/dhotson/springy} \label{fn:springy}} is a JavaScipt implementation of a force-directed layout  
 
 \subsubsection{Manipulation}
 
-The ``move all nodes to random positions'' step can be accompanied by a
+The ``move all nodes to random positions'' step can be replaced by a less random event initiated by the user -- where a user moves one of the nodes, perhaps by clicking and dragging on a graphical display of the graph, and the system responds.
 
 \subsubsection{Efficiency}
 
@@ -236,9 +249,11 @@ Neither of the two additional criteria -- orthogonal structure, and the maximum 
 The studies show a useful, repeatable experimental method which \citet{PURCHASE1998647} has later adapted for the evaluation of [whole] algorithms.
 However, as \citet{Purchase1997which} acknowledges, the studies only investigate ``relational'' reading of drawings of abstract graphs, as opposed to ``interpretative'' reading which would be more relevant to the layout of GSN arguments. One attempt to fill this gap has been \citet{storrle} showing that, particularly for inexperienced users, various criteria commonly recommended for the ``good'' layout of UML diagrams (diagrams in the Unified Modelling Language, used to model the structure of software systems) do improve comprehension. However, he has not looked at the effects of specific aesthetics.
 
-\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks). These tasks are different to the kinds of tasks GSN arguments are likely to be used for. 
+\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
 
-As with sociograms, the relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is moot. In a paper which also summarises other work, some of which has also been discussed here, \citet{Purchase:2002:EEA:594512.594527} describe an study of participants' preferences about UML diagram layout. They investigate both class diagrams and collaboration diagrams. As the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments, which show the steps of a process -- although the hierarchical, inheritance-showing nature of class diagrams arguably has much in common with GSN arguments.
+As with sociograms, the relevance of UML diagram layout to GSN argument layout, even compared to the abstract graphs featured in other work, is moot.
+In a paper which also summarises other work, some of which has also been discussed here, \citet{Purchase:2002:EEA:594512.594527} describe an study of participants' preferences about UML diagram layout.
+They investigate both class diagrams and collaboration diagrams. As the latter describe behaviour, compared to class diagrams which emphasise structure, they can be considered slightly closer to GSN arguments, which show the steps of a process -- although the hierarchical, inheritance-showing nature of class diagrams arguably has much in common with GSN arguments. The method -- asking users about their preferences -- is different to that of other studies, and may be less reliable -- just as users claim that using keyboard shortcuts feels quicker, but are actually faster at using a mouse \citep[pp.~26]{tognazzini1992tog}, they may claim to prefer graph layouts which in fact are more error-prone -- but the reduced focus on specific tasks, along with the use of different types of UML diagram, perhaps makes its findings more relevant. 
 
 
 Most recently, \citet{5674033} invited users to draw graphs :
