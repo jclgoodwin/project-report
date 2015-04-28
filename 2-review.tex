@@ -34,7 +34,7 @@ The categories of algorithm considered most relevant to the automatic layout of 
 
 
 
-\subsection{Force directed algorithms}
+\subsection{Force directed algorithms \label{sec:forcedir}}
 
 Force directed algorithms are relatively simple to understand, and target no particular type of graph.
 \citet{handbook:forcedir} says this combination of simplicity and flexibility has made them particularly attractive,
@@ -57,70 +57,74 @@ $X$ is the distance by which it extends,
 and $k$ is a constant representing the spring's stiffness)
 
 \citeauthor{eades84} uses the following formula in its place:
+
 $$
 F = c_1 \times \log(d \div c_2),
 $$
 
-(where $c_1$ and $c_2$ are constants
+(where $c_1$ and $c_2$ are constants, $c_2$ evidently being the extension of the spring when $F=0$)
 
-Additionally, a 
+A further, repulsive force is present between all non-adjacent nodes:
 
-The steps of the algorithm are summarised as follows:
+$$
+F = c_3 \div d^2
+$$
+
+(``where $c3$ is constant and $d$ is the distance between the vertices'')
+
+This inverse square force has a closer resemblance to a physical law: Columomb's law, which describes the electrostatic force of interaction between two point charges. In scalar form , this is:
+
+$$
+|\mathbf F|=k_e{|q_1q_2|\over r^2}\qquad
+$$
+
+(where $F$ F is the $q_1$ and $q_2$ are the two charges, $r$ is the distance between them, and $k_e$ is Coulomb's constant)
+
+Coulomb's law closely resembles Newton's law of universal gravitation, which describes the gravitational force between two masses.
+But gravitational force is always attractive (if it is assumed that nothing can have negative mass),
+whereas the electrostatic force described by Coulomb's law can be repulsive (if both particles' charges have the same sign).
+
+The steps of \citeauthor{eades84}'s algorithm are summarised as follows:
 
 \begin{enumerate*}
 \item Move nodes to random positions
-\item Calculate the force on each node
-\item Move the vertex $c_4 \times (force on vertex)$
+\item Calculate the force, $F$, on each node
+\item Move the vertex $c_4 \times F$
 \item Repeat steps 2--3, perhaps 100 times
 \end{enumerate*}
 
-
-
-\citet{SPE:SPE4380211102} extend the idea of forces between the nodes themselves, inspired by atomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws while still being inspired by them. 
+\citet{SPE:SPE4380211102} extend the idea of forces between the nodes themselves, inspired by subatomic particles and celestial bodies. Like \citeauthor{eades84} they are not afraid to play fast and loose with the real physical laws, while still being inspired by them. A more even distribution of nodes is achieved by having inter-node forces that can be both attractive and repulsive at different difference, similar to the strong nuclear force been subatomic particles. As discussed in section~\ref{whatmakesgood}, the goal of evenly spaced nodes turns out to be misguided, so \citet{Kamada19897}'s approach -- much further removed from any laws of physics, and instead aiming for a distance between each pair of nodes proportionate to their graph theoretical distance -- is shown to be more valid. Unfortunately, the means of achieving it is both more computationally complex and has a higher space complexity.
 
 In general, many different combinations of weak and strong, repulsive and attractive forces can be used to achieve different results.
 
-Springy\footnote{\url{https://github.com/dhotson/springy} \label{fn:springy}} is a JavaScipt implementation of a force-directed layout  
+Springy\footnote{\url{https://github.com/dhotson/springy} \label{fn:springy}} is a JavaScript implementation of a force-directed layout algorithm which, seeming to ignore some parts of the work of \citet{eades84}, applies physical laws more faithfully, using both Hooke's law and Coulomb's law.
 
 \subsubsection{Manipulation}
 
-The ``move all nodes to random positions'' step can be replaced by a less random event initiated by the user -- where a user moves one of the nodes, perhaps by clicking and dragging on a graphical display of the graph, and the system responds.
+By replacing the ``move all nodes to random positions'' step with a less random event initiated by the user -- where a user moves one of the nodes, perhaps by clicking and dragging on a graphical display of the graph, and the model physical system then reacts -- a particularly suitable force directed algorithm for incorporation into Artoo could be devised.
 
 \subsubsection{Efficiency}
 
-A clear drawback of force directed methods is their computational complexity, which becomes a problem for large graphs.
-GSN arguments are typically relatively small -- for example, the largest in \_ is has \_ nodes -- but, nevertheless, [something].
-Various ways have been found to improve their efficiency.
+A clear drawback of force directed methods is their computational complexity, which becomes a particular problem for large graphs.
+GSN arguments are typically relatively small -- for example, the largest in \cite{royal} has 29 nodes; with presumably much less powerful hardware in the 1980s, \citeauthor{eades84} and \citet{SPE:SPE4380211102} were targeting sizes of 30--40 --
+but the various ways which have been found to improve their efficiency should not be ignored.
 
-The Barnes-Hut algorithm is applicable to n-body simulations \citet{quigleyfade} 
-
-Fruchterman and Reingold 
-
-arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that uses the Barnes-Hut algorithm 
-
-[Eades]
-
-\citet{handbook:forcedir}
+The Barnes-Hut algorithm is applicable to n-body simulations, such as the calculations of forces. This is something employed by \citet{quigleyfade}, for example. arbor.js\footnote{\url{http://arborjs.org/}} is a JavaScript implementation that combines the Barnes-Hut algorithm with the accurate physical force code from Springy\footref{fn:springy}.
 
 \subsubsection{Non-point nodes}
 
-A deficiency of the methods discussed thus far is that they are concerned purely with abstract graphs, and [as a symptom of this] assume that all nodes are single points. As [[gasner]] points out, 
-
-
-gansner 199*
-
-
+A deficiency of the methods discussed thus far is that they are concerned purely with abstract graphs, and as a symptom of this assume that all nodes are single points. 
 
 
 \subsection{Tree layout}
 
-Trees are graphs where there is exactly one path between any pair of nodes -- in other words, they are graphs which contain no cycles..
+Trees are graphs in which there is exactly one path between any pair of nodes -- in other words, they are graphs which contain no cycles.
 
-Some GSN arguments are directed rooted trees, such as those shown in figure~\ref{fig:artoo} and figure~\ref{fig:aldencentral}: they contain no cycles, there is exactly one path between any pair of nodes, and the root is clearly the top-level GSN element (conventionally always a goal).
-This 
-But not all arguments are trees, as seen in figure~\ref{fig:crampedex1} -- cycles are permitted by the GSN syntax, and by Artoo. In these cases, it is possible 
+Some GSN arguments are directed rooted trees, such as those shown in figure~\ref{fig:artoo} and figure~\ref{fig:aldencentral}: they contain no cycles, and have exactly one path between any pair of nodes; the root node, in all cases, is clearly the top-level goal element.
+This creates an opportunity for the use of tree layout algorithms, which 
+But not all arguments are trees, as seen in figure~\ref{fig:crampedex1} -- cycles are permitted by the GSN syntax, and by Artoo. Fortunately, in these cases, it is possible to obtain a minimum spanning tree using either a breadth- or depth-first search (taking linear time) . 
 
-Binary trees are still easier to lay out \cite{handbook:tree}. Again, a subset of all possible valid GSN arguments are binary trees, but it is a much less significant subset -- none of the real-world example arguments featured in this report, or in literature referenced in this report, happen to be binary trees -- and converting a 
+Binary trees are even easier to lay out \cite{handbook:tree}. Again, a subset of all possible valid GSN arguments are binary trees, but it is a much less significant subset (for example, none of the real-world example arguments featured in this report, or in literature referenced in this report, happen to be binary trees). Intuition also suggests that converting a typical GSN argument to a binary tree must necessarily involve removing a number of nodes (not just edges), leaving a binary tree structure more dramatically different to the original GSN argument. For this reason, binary tree layout algorithms are less relevant.
 
 
 \subsection{Layered graph drawing}
@@ -136,38 +140,10 @@ Layered or hierarchical graph drawing techniques are sometimes generalised as \e
 
 The steps form a rough framework to be filled in -- in this way, the method has formed a starting point for enhancements and variations just like the force directed idea, despite being less fundamentally simple.
 
-Whereas force directed techniques typically produce layouts where 
+Whereas force directed techniques typically produce layouts where, 
 
 
-Although 
-
-
-
-\section{[GSN-/Artoo-specific considerations?]}
-
-
-\section{}
-
-
-
-
-\subsection{Directed cycles}
-
-It can be useful to remove directed cycles from the internal representation of a graph
-(before drawing them back in their correct, original directions)
--- for example, in order to assign a consistent rank to each node.
-This is achieved by reversing certain edges.
-\citet{gansner1993} show that a simple depth-first-search \ldots  Minimising the number of edges is more difficult, \citeauthor{gansner1993} \ldots
-
-
-
-\subsection{Undirected cycles}
-
-Undirected cycles can be eliminated by ignoring certain edges altogether.  [citation needed]
-
-
-
-\section{What makes a good graph layout?}
+\section{What makes a good graph layout? \label{sec:whatmakesgood}}
 
 The GSN was intended to be a clearer way of presenting arguments than free text.
 The process of breaking down arguments into their constituent parts achieves some of this clarity,
@@ -182,10 +158,9 @@ Some attempts have been made to enumerate the vital characteristics of a good gr
 \citet{Himsolt95comparingand} compared a total of 11 different graph layout algorithms, ranging from force directed to more specialised ones only suitable for particular categories of graph (such as planar and directed acyclic).
 As well as running time, and six quantitative layout-related criteria -- ranked in order of significance after observing the layouts produced -- there is included a ``personal rating'' (on a scale of 1--5), based on the judgements of colleagues upon viewing the layouts produced.
 However, details of the experimental method used, and detailed statistical results, are not provided.
-\todo{found that force directed algorithms produce good layouts for general graphs, but have the worst running time; DAG is also good with a better running time; others not relevant to this project}
 
 \citet{DiBattista1997303} compared four algorithms, providing more detailed results.
-Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work \todo{can't find the paper they mention (``S. Jones, P. Eades, A. Moran, N. Ward, G. Delott and R. Tamassia, A note on planar graph drawing algorithms, Technical Report 216, Department of Computer Science, University of Queensland (1991).'')} that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. This is a good example to follow \ldots
+Improving on \citeauthor{Himsolt95comparingand}'s use of about 100 graphs, and earlier work that used purely randomly generated graphs, they took 112 graphs from real-word applications and generated 11,582 variations in total. This is a good example to follow \ldots
 
 They used implementations of the algorithms to lay out these graphs, and evaluated the resulting layouts according to nine quality metrics:
 
@@ -219,11 +194,11 @@ Since the paper was published, data such as those published by Unity Technologie
 Standard paper sizes have a different aspect ratio still.
 If aesthetic beauty is important, then perhaps the golden ratio \cite{Harrington:2004:AMA:1030397.1030419} should be used instead.
 
-However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
+However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts, for example, are likely to be difficult to fit into typical spaces.
 The other metrics seem reasonable.
 
 
-\subsection{Empirical evidence for the the validity of heuristics}
+\subsection{Empirical evidence for the the validity of heuristics \label{sec:emprirical}}
 
 As graph theory, and in turn graph layout, has a broad range of applications, it follows that the reasons for giving significance to different aesthetic qualities can vary depending on the application.
 
@@ -240,7 +215,7 @@ several decades have typically been designed in accordance with the intuitions o
 \citet{eades84}, for example, intuited that ``edge lengths ought to be about the same and the layout should display as much symmetry as possible''.
 \citeauthor{5674033}'s observation highlights the need for these intuitions to be validated properly.
 
-First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms. \todo{go in to more detail?}
+First, particular aesthetics have been evaluated. \citet{Purchase1997basis} evaluated three -- maximising symmetry, minimising edge crossings, and minimising edge bends -- which had been mentioned in literature describing desirable properties of drawings produced by various algorithms.
 Nine drawings (fulfilling these aesthetics to varying degrees) of one of two graphs were shown to 84 participants,
 who were asked questions requiring them to read the drawings.
 Drawings with edge crossings and bends were found to correlate with errors in a statistically significant way, but symmetry -- a complexly defined metric -- appeared to have no significant effect.
@@ -266,11 +241,10 @@ Both class diagrams and collaboration diagrams appear in the UML study; as the l
 \end{figure}
 
 
-\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. (As with UML diagrams, the relevance of sociogram layout to GSN argument layout may be questionable.) For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ''the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
+\citet{huang2007effects} looked at the effects of drawing conventions and edge crossings in sociograms -- domain graphs representing the relationships between people, organisations and other social entities -- using 27 participants who were asked to analyse twelve sociogram drawings. (As with UML diagrams, the relevance of sociogram layout to GSN argument layout may be questionable.) For each of six drawing conventions, a version was produced with many edge crossings and another produced with minimal crossings. As well as confirming the negative effect of edge crossings, they found the even distribution of nodes -- sometimes touted as a featured of aesthetically beautiful graphs, for example by \citet{SPE:SPE4380211102} -- to be a pitfall, recommending instead that ``the distances between nodes should reflect their relationships''. They offer further, more specific advice for optimising layouts for different sociogram-related tasks (group tasks and importance tasks) -- tasks which are likely to be different to those in which GSN arguments might feature.
 
-Most recently, \citet{5674033} invited users to draw graphs :
-compared ``formal'' (like the Artoo tool) and ``sketch'' interface modes.
-One of
+The latest trend is to involve users in actually creating and editing graph structures, and to identify patterns in the layouts they produce. \citet{5674033} performed one such study, which has the advantage of improving on the contributions of others who have pioneered this particular methodology. Extracting results from graphs this way involves more subjectivity, compared to using users to evaluate carefully chosen graphs that demonstrate different characteristics -- although, yet again, edge crossings are found to be the most significant -- but the method allows more general recommendations about the implementation of graph layout to be produced. For example: ``Our results suggest that graph drawing systems should integrate automatic layout with the user’s
+manual editing process, and provide facilities to support grid-based graph creation.''
 
 A good concluding summary is \citet{CRPITV106P80-88} overview of the outcomes of research up to 2010: ``Findings include
 the overwhelming evidence for the reduction of edge
@@ -295,12 +269,15 @@ Some of the principles summarised by \citet{kennysun} can be applied to GSN argu
 
     \item[Similarity] Objects that have the same shape or colour, for example, appear grouped together.
     The GSN effectively exploits this law, as elements of each type have a common shape. As with the principle of connectedness, layout can support this by positioning nodes sufficiently far apart that their shapes are clearly visible.
+    The use of colour -- one of \citet{kennysun}'s recommendations for UML layout -- has no precedent in GSN arguments, and falls outside the scope of this project.
     
-    \item[Proximity] ``Elements that are close to each other are grouped together.'' This is supported by \citet{huang2007effects}'s evidence-based recommendation that nodes should not be consistently evenly spaced, but poisitioned in a way th
+    \item[Proximity] ``Elements that are close to each other are grouped together.'' This is supported by \citet{huang2007effects}'s evidence-based recommendation that ``the distances between nodes should reflect their relationships'', rather than being meaninglessly regular.
     
-    \item[Familiarity] ``Elements are more likely to be grouped together if the groups seem familiar or meaningful.'' This principle makes the case for prioritising the  
-    
-    \item[Alignment] Elements that are aligned with eaco ther
+    \item[Familiarity] ``Elements are more likely to be grouped together if the groups seem familiar or meaningful.'' This principle seems to make the case for following the established conventions shown in manually-produced layouts and \cite{gsnstandard} (see section~\ref{sec:humangold}).
+
+    \item[Contour] ``Modern theories about figure-ground segregation
+discovered that contours (i.e. edges) play a very
+important role in figure-ground perception\ldots''. This realates back to the similarity principle, and reinforces the importance of GSN elements not overlapping.
 
 \end{description}
 
@@ -308,7 +285,7 @@ Some of the principles summarised by \citet{kennysun} can be applied to GSN argu
 
 \subsection{The human gold-standard \label{sec:humangold}}
 
-Similarly to the method of \citet{5674033}, One understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild'' -- like the method, , understanding 
+Inspired by the method of \citet{5674033}, one understanding of the ideal layout of a GSN argument can be reached by observing the layouts of arguments found ``in the wild'' -- like the method, , understanding 
 Although it is not always clear whether these have been laid out ``manually'' or automatically, it is reasonable to assume that , 
 Plenty of arguments can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico}.
 
@@ -330,13 +307,11 @@ If treated as separate graphs, the sub-graphs showing the refinement of the stra
     \label{fig:aldencentral}
 \end{figure}
 
-Other literature  . As the authors of \cite{royal}'s authors include the original developer of Artoo, 
-
 In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagrams, but there are many examples elsewhere in the document. These follow the guidelines, but are often imperfect in other ways:
 
 \begin{itemize*}
     \item The layout reproduced in figure~\ref{fig:crampedex1} is very dense; semantically related nodes are not positioned closer together, indicating that the author has not considered the principle of proximity to aid readers' understanding (see section~\ref{sec:gestalt}).
-    \item Another example, shown in figure~\ref{fig:unalignedsiblings} appears discomforting. 
+    \item Another example, shown in figure~\ref{fig:unalignedsiblings} appears ``strange''. The most relevant principle of visual perception here is familiarity: the arrangememnt of the strategy eleements.
 \end{itemize*}
 
 This supports a conclusion that, although examples found in literature are not always are perfectly laid out -- which  the imperfections are at least easy to identify.
@@ -348,7 +323,13 @@ This supports a conclusion that, although examples found in literature are not a
     \label{fig:unalignedsiblings}
 \end{figure}
 
+Finally, two cross edges in an argument from \cite{Hbli:2006:PPC:1183088.1183090}, shown in figure~\ref{fig:cross}. Every emprical study in section~\ref{sec:whatmakesgood} has shown this to adversely affect reader comprehension, but in this situation it appears to be the best layout given the structure of the graph.
 
+\begin{figure}
+    \includegraphics[width=0.4\textwidth]{graphics/cross.png}
+    \caption{A fragment of an argument from \cite{Hbli:2006:PPC:1183088.1183090}, exhibiting the widely-criticised feature of edge crossings -- but justifiably.}
+    \label{fig:cross}
+\end{figure}
 
 
 \section{Implementation}
