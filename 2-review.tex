@@ -307,7 +307,7 @@ Similarly to the method of \citet{5674033}, One understanding of the ideal layou
 Although it is not always clear whether these have been laid out ``manually'' or automatically, it is reasonable to assume that , 
 Plenty of arguments can be found in literature, for example in \cite{Habli:2006:PPC:1183088.1183090} and  \cite{insilico}.
 
-Layouts typically follow the guidelines described in the GSN specification \citep[section~2.2, pp.~26--27]{gsnstandard}, \todo{should I consistently call it a ''community standard [document]'' or something else?}
+Layouts typically follow the guidelines described in the GSN standard \citep[section~2.2, pp.~26--27]{gsnstandard},
 to ``enable the reader to perceive the logical flow of the argument being presented, and to enhance its readability.''
 The specification suggests that arguments should flow down the page, starting with an abstract parent goal at the top, progressing downwards as this is refined into more concrete child strategies, goals and solutions -- this allows the hierarchy of the graph to be understood without looking at the directions of the connecting arrows.
 Context, assumption and justification elements are placed to the sides, a positioning which reflects their semantic role.
@@ -315,15 +315,9 @@ Context, assumption and justification elements are placed to the sides, a positi
 Although the specification document does not fully justify its recommendations, they seem reasonable, but there there are instances of authors contravening them.
 
 Figure~\ref{fig:aldencentral} shows \citet{royal} placing child strategies around a central claim, contrary to the top-down approach recommended. Two other arguments in the paper \cite[pp.~8--9]{royal} have a similar layout.
-A rough visual observation highlights that -- compared to a theoretical layout following the official guidance to the letter -- it takes slightly longer to identify the top-level claim node, but offers these advantages:
+A rough visual observation highlights that -- compared to a theoretical layout following the official guidance to the letter -- it takes slightly longer to identify the top-level claim node, but offers the advantages of a smaller area, a ``better'' aspect ratio, and better edge lengths. 
 
-\begin{itemize*}
-\item Smaller area
-\item Better aspect ratio
-\item 
-\end{itemize*}
-
-The refinements of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides. However, the positions of the children of strategy 1.1.1.4 (in the bottom right corner) are clearly incorrect, in a way that appears to have no advantages.
+If treated as separate graphs, the sub-graphs showing the refinement of the strategies do mostly follow the standard guidance, continuing in a top-down (or bottom-up) order, and with context, assumptions and justifications placed at the sides. However, the positions of the children of strategy 1.1.1.4 (in the bottom right corner) are clearly incorrect, in a way that appears to have no advantages.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{graphics/aldencentral.jpg}
@@ -364,13 +358,23 @@ The Artoo tool is written mainly in JavaScript, along with some CSS which descri
 \item Haste\footnote{\url{http://haste-lang.org/}}, UHC-JS\footnote{\url{http://uu-computerscience.github.io/uhc-js/}}
 and GHCJS\footnote{} are compilers from Haskell to JavaScript, and
 SMLtoJS\footnote{\url{http://www.smlserver.org/smltojs/}} is a Standard ML--to-JavaScript compiler.
-These tools, which each allow the use of functional languages to write code that runs in any modern web browser, are perhaps most interesting, since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''; Haskell, being a \emph{pure} functional language, may take this even further.
+These tools, which each allow the use of functional languages to write code that runs in any modern web browser, are perhaps the most interesting, since \citet{kennedyfuntrees} observed that a tree layout algorithm implemented in Standard ML ``reflects the structure of the abstract solution much better than an imperative language implementation''; Haskell, being a \emph{pure} functional language, may take this even further.
 
 \end{itemize}
 
 None of these appear to offer compelling enough advantages to justify the added complexity (such as extra code to convert between different languages' data structures, and extra compilation steps in the development process) and the inconsistency with the existing Artoo codebase, that adopting them would entail. 
 
-The existence of good, permissively licensed existing implementations of graph layout implementations could motivate the choice of another language and associated tool-chain. Such implementations include the Open Graph Drawing
-Framework\footnote{\url{http://www.ogdf.net/}} \cite{handbook}, written in C++, and the Graphviz package which includes C implementations of some of the most well-developed algorithms discussed earlier \cite{gansner1993, gansner1998}. Enscripten \footnote{\url{http://emscripten.org}} can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well -- although only SpiderMonkey, in h, currently does this optimisation, it would be interesting to test the 
+However, the existence of good, permissively licensed existing implementations of graph layout algorithms could motivate the choice of another language and associated tool-chain.
+Such implementations include
+the Open Graph Drawing Framework\footnote{\url{http://www.ogdf.net/}} \cite{handbook},
+written in C++,
+and the Graphviz package\footnote{\url{http://www.graphviz.org/}},
+which includes C implementations of some of the most well-developed algorithms \cite{gansner1993, gansner1998} discussed earlier.
+
+OGDF and Graphviz would appear to be unsuitable for use in this project, were it not for the existence of Enscripten\footnote{\url{http://emscripten.org}}, which can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well. Although only SpiderMonkey, which is part of Mozilla Firefox, currently does this optimisation, it would be interesting to test whether simply using this without the ASM optimisations would perform adequately on modern hardware to lay out the relatively small graphs that GSN arguments typically are. However, because, 
 
 For the sake of consistency with the existing code, and to take advantage of existing implementations such as Dagre and Springy, the plain JavaScript approach should be maintained at the start of the development process. 
+
+\subsection{JavaScript}
+
+
