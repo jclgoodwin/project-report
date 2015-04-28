@@ -63,6 +63,8 @@ $$
 
 (where $c_1$ and $c_2$ are constants
 
+Additionally, a 
+
 The steps of the algorithm are summarised as follows:
 
 \begin{enumerate*}
@@ -112,8 +114,13 @@ gansner 199*
 
 \subsection{Tree layout}
 
-Some GSN arguments are rooted trees. 
+Trees are graphs where there is exactly one path between any pair of nodes -- in other words, they are graphs which contain no cycles..
 
+Some GSN arguments are directed rooted trees, such as those shown in figure~\ref{fig:artoo} and figure~\ref{fig:aldencentral}: they contain no cycles, there is exactly one path between any pair of nodes, and the root is clearly the top-level GSN element (conventionally always a goal).
+This 
+But not all arguments are trees, as seen in figure~\ref{fig:crampedex1} -- cycles are permitted by the GSN syntax, and by Artoo. In these cases, it is possible 
+
+Binary trees are still easier to lay out \cite{handbook:tree}. Again, a subset of all possible valid GSN arguments are binary trees, but it is a much less significant subset -- none of the real-world example arguments featured in this report, or in literature referenced in this report, happen to be binary trees -- and converting a 
 
 
 \subsection{Layered graph drawing}
@@ -210,7 +217,7 @@ The \textbf{ScreenRatio} metric is the least robust.
 In general, the ideal aspect ratio will depend on various factors, such as where the graph is displayed.
 Since the paper was published, data such as those published by Unity Technologies\footnote{\url{http://stats.unity3d.com/}} have shown that 4:3 is no longer the most common computer screen aspect ratio.
 Standard paper sizes have a different aspect ratio still.
-If aesthetic beauty is important, then perhaps the golden ratio \todo{reference} should be used instead.
+If aesthetic beauty is important, then perhaps the golden ratio \cite{Harrington:2004:AMA:1030397.1030419} should be used instead.
 
 However, being only one metric of nine, ScreenRatio has not been given undue significance, and it highlights a relevant point: linear layouts \todo{there should be a page in Di Battista's book}, for example, are likely to be difficult to fit into typical spaces.
 The other metrics seem reasonable.
@@ -287,12 +294,14 @@ Some of the principles summarised by \citet{kennysun} can be applied to GSN argu
     \item[Connectedness] Objects that are physically connected are perceived to be connected. This is extremely obvious, and is shown in almost every conventional representation of graphs and GSN arguments, but does importantly provide a formal motivation for the idea that nodes should be spaced sufficiently far apart that non-connected nodes do not overlap (see the problem of non-point nodes in force-directed graph layout). 
 
     \item[Similarity] Objects that have the same shape or colour, for example, appear grouped together.
-    The GSN effectively exploits this law, as elements of each type have a common shape. As with the principle of connectedness, layout can support this by positioning nodes sufficiently far apart, so that nodes' shapes are clearly visible.
+    The GSN effectively exploits this law, as elements of each type have a common shape. As with the principle of connectedness, layout can support this by positioning nodes sufficiently far apart that their shapes are clearly visible.
     
-    \item[Proximity] ``Elements that are close to each other are grouped together.'' This is supported by \citet{huang2007effects}'s evidence-based recommendation that 
+    \item[Proximity] ``Elements that are close to each other are grouped together.'' This is supported by \citet{huang2007effects}'s evidence-based recommendation that nodes should not be consistently evenly spaced, but poisitioned in a way th
     
-    \item[Familiarity] ``Elements are more likely to be grouped together if the groups seem familiar or meaningful.'' This principle could be 
+    \item[Familiarity] ``Elements are more likely to be grouped together if the groups seem familiar or meaningful.'' This principle makes the case for prioritising the  
     
+    \item[Alignment] Elements that are aligned with eaco ther
+
 \end{description}
 
 
@@ -327,7 +336,7 @@ In \cite{gsnstandard}, layout guidance is not demonstrated using specific diagra
 
 \begin{itemize*}
     \item The layout reproduced in figure~\ref{fig:crampedex1} is very dense; semantically related nodes are not positioned closer together, indicating that the author has not considered the principle of proximity to aid readers' understanding (see section~\ref{sec:gestalt}).
-    \item Another example, shown in figure~\ref{fig:unalignedsiblings} \ldots \ldots
+    \item Another example, shown in figure~\ref{fig:unalignedsiblings} appears discomforting. 
 \end{itemize*}
 
 This supports a conclusion that, although examples found in literature are not always are perfectly laid out -- which  the imperfections are at least easy to identify.
@@ -338,6 +347,7 @@ This supports a conclusion that, although examples found in literature are not a
             from the GSN specification \citep[figure~42, section~2.3.6.5, pp.~34]{gsnstandard}}
     \label{fig:unalignedsiblings}
 \end{figure}
+
 
 
 
@@ -370,6 +380,8 @@ which includes C implementations of some of the most well-developed algorithms \
 OGDF and Graphviz would appear to be unsuitable for use in this project, were it not for the existence of Enscripten\footnote{\url{http://emscripten.org}}, which can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well. Although only SpiderMonkey, which is part of Mozilla Firefox, currently does this optimisation, it would be interesting to test whether simply using this without the ASM optimisations would perform adequately on modern hardware to lay out the relatively small graphs that GSN arguments typically are.
 
 For the sake of consistency with the existing code, and to take advantage of existing implementations such as Dagre and Springy\footref{fn:springy}, the plain JavaScript approach should be maintained at the start of the development process. Because ASM remains a work-in-progress, it should be relegated to being considered \emph{nice to investigate if there's time at the end}.
+
+
 
 \subsection{JavaScript}
 
