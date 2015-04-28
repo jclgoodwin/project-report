@@ -110,8 +110,9 @@ gansner 199*
 
 
 
-\subsection{grid}
+\subsection{Tree layout}
 
+Some GSN arguments are rooted trees. 
 
 
 
@@ -140,11 +141,6 @@ Although
 
 \section{}
 
-
-
-\subsection{Dangling edges}
-
-suggests incomplete graph
 
 
 
@@ -371,10 +367,24 @@ written in C++,
 and the Graphviz package\footnote{\url{http://www.graphviz.org/}},
 which includes C implementations of some of the most well-developed algorithms \cite{gansner1993, gansner1998} discussed earlier.
 
-OGDF and Graphviz would appear to be unsuitable for use in this project, were it not for the existence of Enscripten\footnote{\url{http://emscripten.org}}, which can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well. Although only SpiderMonkey, which is part of Mozilla Firefox, currently does this optimisation, it would be interesting to test whether simply using this without the ASM optimisations would perform adequately on modern hardware to lay out the relatively small graphs that GSN arguments typically are. However, because, 
+OGDF and Graphviz would appear to be unsuitable for use in this project, were it not for the existence of Enscripten\footnote{\url{http://emscripten.org}}, which can compile LLVM bitcode (readily compiled from C or C++ code) to ASM\footnote{\url{http://asmjs.org/}}, a strict subset of JavaScript which web browsers' JavaScript engines can potentially optimise very well. Although only SpiderMonkey, which is part of Mozilla Firefox, currently does this optimisation, it would be interesting to test whether simply using this without the ASM optimisations would perform adequately on modern hardware to lay out the relatively small graphs that GSN arguments typically are.
 
-For the sake of consistency with the existing code, and to take advantage of existing implementations such as Dagre and Springy, the plain JavaScript approach should be maintained at the start of the development process. 
+For the sake of consistency with the existing code, and to take advantage of existing implementations such as Dagre and Springy\footref{fn:springy}, the plain JavaScript approach should be maintained at the start of the development process. Because ASM remains a work-in-progress, it should be relegated to being considered \emph{nice to investigate if there's time at the end}.
 
 \subsection{JavaScript}
 
+Having decided to use JavaScript, it is important to write ``good'' JavaScript. 
+\citet{Crockford:2008:JGP:1386753} identifies all of the common pitfalls and offers advice for avoiding them.
+Some of the simplest arise from a lack of knowledge of the language: 
+
+\begin{description}
+    \item[Omitting semicolons]
+    Separating statements with semicolons is not strictly necessary when they are separated by line breaks, and does not prevent code from running -- so is easy to do accidentally -- but when semicolons are omitted they are in fact inserted automatically, and not always in the way the programmer might have intended.
+    \item[Not properly declaring variables]
+    When a new variable is declared in the body of a function, if its name is not preceded with the \texttt{var} keyword it will have global scope. This is quite unintuitive, and omitting \texttt{var} is easy to do accidentally.
+\end{description}
+
+\citeauthor{Crockford:2008:JGP:1386753} also explains JavaScript's unusual system of prototypal inheritance, which can confuse programmers by dint of using a visually similar syntax to that of languages which use classical inheritance. This is less relevant to the code that will be written initially in this project, which involves manipulating the already well-defined object structures of Artoo and various existing graph layout algorithm implementations, and following the conventions they establish.
+
+\citeauthor{Crockford:2008:JGP:1386753} recommends using the JSLint static analysis tool\footnote{\url{http://www.jslint.com/}} to identify these problems in code. This shall be used.
 

@@ -111,7 +111,7 @@ Currently, users of Artoo have full control over the layout of arguments they dr
 (Edges are drawn automatically, based on connections defined by the user.)
 Clearly, this becomes time-consuming and difficult to manage for larger arguments, and is made harder by the absence of features such as ``snap to grid''
 (see Microsoft Office\footnote{\url{https://support.office.com/article/d9c687fc-926e-4eca-8cef-952eed714012}}
-and GIMP \footnote{\url{http://docs.gimp.org/en/gimp-view-snap-to-grid.html}).
+and GIMP\footnote{\url{http://docs.gimp.org/en/gimp-view-snap-to-grid.html}}.
 Furthermore, users may sometimes perform manual layout badly, an idea explored in section~\ref{sec:humangold}.
 
 For these reasons, graph drawing tools often include automatic layout features.
@@ -132,7 +132,7 @@ In the case of a GSN argument, there is information associated with the input gr
 
 \begin{itemize}
   \item
-    Each node has a width and a height, whereas a node is a single point in the simplest model of an abstract graph.
+    Each node has a width and a height, whereas the simplest model of an abstract graph has each node as a single point.
   \item
     There are various types of node and edge, and the type of a node should influence where it is placed. Specifically: goals, strategies and solutions should be treated differently to context, assumption and justification elements.
     \begin{itemize}
@@ -145,13 +145,12 @@ The paths of edges may also be outputted by non--straight line drawing algorithm
 
 \section{Structure}
 
-\begin{itemize}
+\begin{enumerate}
 \item The \textbf{introduction} introduces the problem, the report and its structure.
-\item \textbf{Research} discusses approaches to the layout of graphs, and approaches to evaluating their layout.
-\item Decide on
-\item
-\item
-\end{itemize}
+\item \textbf{Research} discusses approaches to laying out graphs and evaluating their layout. Matters relevant to the implementation of the graph layout feature are also mentioned.
+\item \textbf{Method} describes the practical work carried out in this project, and the requirements-gathering and evaluation processes that took place before, during and after.
+\item The \textbf{conclusion} summarises the results of the research and practical work, and suggests ways to continue it in the future.
+\end{enumerate}
 
 
 \section{Statement of ethics}
@@ -163,7 +162,7 @@ Where third party open source software has been used, this has been made clear, 
 \begin{itemize}
 \item Artoo: copyright \copy 2013 University of York, distributed under the terms of the GNU General Public License\footnote{\url{http://www.gnu.org/licenses/}} version 3
     \begin{itemize}
-    \item Artoo also already makes use of other permissively licensed software libraries, such as 
+    \item Artoo also already makes use of other permissively licensed software libraries, which are identified in \texttt{README.pdf} in this project's archive of supplementary material.
     \end{itemize}
 \item Springy: MIT License\footnote{\url{http://opensource.org/licenses/MIT}}
 \item Arbor: MIT License
